@@ -73,3 +73,15 @@ func _process(delta):
 Neue Idee dann: DataOSC App am Handy und dann mit hoch bzw. runter kippen vom Handy das paddle steuern. In scripts/oscrecognition ist der Code, es werden auch Daten vom Handy und der App empfangen und ausgegeben, aber in Godot kommen die Daten irgendwie noch nicht an und ich weiß nicht warum
 
 - Download dataOSC aus dem Appstore
+- Eigene ip adresse des Computers rausfinden
+- in DataOSC App die IP Adresse des Computers eingeben
+- im Pythonscript bei IP = "192.168.2.118" die eigene IP Adresse eingeben
+
+# ToDo
+
+- Kommunikation zwischen Python und Godot oder die Daten von DataOSC direkt in Godot?
+- ggf. Voicecontrol doch noch realisieren? Aber wie unterschiedet man dann beim Multiplayer 2 Stimmen? 2 Mikrofone ggf. verwenden? Schwierig
+
+Advanced
+
+- 2 Handys mit DataOSC für 2 Player verwenden und 2 Ports festlegen?
