@@ -9,6 +9,7 @@ HISTORY_SIZE = 500
 GYRO_FACTOR = 100.0  # Multiplikationsfaktor zur Darstellung der Bewegung
 UDP_IP = "127.0.0.1"  # Godot läuft lokal
 UDP_PORT = 6000  # Port für Godot
+IP = "192.168.2.118"  # IP-Adresse des eigenen Rechners
 
 # Gyro-Werte speichern
 gyro_x_values = deque(maxlen=HISTORY_SIZE)
@@ -41,7 +42,7 @@ def run_osc_server():
     print("Starting OSC server...")
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--ip", default="192.168.2.118", help="IP address to listen on")
+    parser.add_argument("--ip", default=IP, help="IP address to listen on")
     parser.add_argument("--port", type=int, default=5005, help="Port to listen on")
     args = parser.parse_args()
 

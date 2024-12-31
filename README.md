@@ -1,10 +1,22 @@
-# Dependencies
+# Pong in Godot mit cooler Steuerung
 
-## für Mac für die Spracherkennung
+Ziel ist es, dass man das SPiel Pong entweder alleine oder zu zweit gegeneinander lustig spielen kann.
+
+Aktuell kann man das linke Paddle mit W und A hoch und runter bewegen, für das Rechte Paddle arbeite ich grad an was coolerem. Ich hab erst ein Pythonskript für die Spracherkennung gemacht, das findest du im Repo bei scripts/voicerecognition und kannst das direkt ausführen.
+
+Die Sprachereknnung war aber bisschen scheiße, weil einzelne Wörter zu kurz sind, also „up“ erkennt er gar nicht, „hoch“ nur manchmal weil das ch scheiße ist, Test und Hallo geht, aber wird häufig auch zu „test test“ oder „hallo hallo“. Plan war: Python nimmt übers Mikro die Sprache auf und schreibt es in eine Textdatei voice_input.txt, Godot liest die Textdatei und das Paddle bewegt sich.
+Aber weil das mit Python schon nicht richtig ging hab ichs über den Haufen geworfen.
+
+## Dependencies
 
 ```
 brew install portaudio
 ```
+
+- pyaudio
+- SpeechRecognition
+
+Backup vom Voicerecognitioncode bei Player2 in Godot
 
 ```godot
 # Player2 Voicecontrol
@@ -57,5 +69,7 @@ func _process(delta):
 - funktioniert nicht richtig, Wörter zu kurz
 
 # OSC Steuerung
+
+Neue Idee dann: DataOSC App am Handy und dann mit hoch bzw. runter kippen vom Handy das paddle steuern. In scripts/oscrecognition ist der Code, es werden auch Daten vom Handy und der App empfangen und ausgegeben, aber in Godot kommen die Daten irgendwie noch nicht an und ich weiß nicht warum
 
 - Download dataOSC aus dem Appstore
