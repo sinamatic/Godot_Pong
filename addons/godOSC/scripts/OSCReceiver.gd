@@ -9,7 +9,7 @@ extends Node
 @export var target_server : OSCServer
 
 ## The OSC address to receive
-@export var osc_address := "/example"
+@export var osc_address := "/data/motion/gyroscope/y"
 
 ## Get the parent of this node
 @onready var parent = get_parent()

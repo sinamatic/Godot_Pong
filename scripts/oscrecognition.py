@@ -4,8 +4,12 @@ from pythonosc import udp_client
 
 
 def gyroscope_handler(address, *args):
-    print(f"{address}: {args}")
-    godot_client.send_message("/data/motion/gyroscope/y", args)
+    if args:  # Sicherstellen, dass args nicht leer ist
+        value = float(
+            args[0]
+        )  # Extrahiere den ersten Wert und konvertiere ihn zu float
+        print(f"{address}: {value}")
+        godot_client.send_message("/data/motion/gyroscope/y", [value])
 
 
 dispatcher = dispatcher.Dispatcher()
@@ -17,7 +21,7 @@ port = 5005
 
 # Client configuration for sending to Godot
 godot_ip = "127.0.0.1"  # Replace with your Godot IP if necessary
-godot_port = 6000  # Replace with your Godot's receiving port
+godot_port = 4646  # Replace with your Godot's receiving port
 
 godot_client = udp_client.SimpleUDPClient(godot_ip, godot_port)
 

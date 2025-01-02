@@ -7,7 +7,7 @@ extends Node
 @export var target_client : OSCClient
 
 ## The OSC address to send to
-@export var osc_address := "/example"
+@export var osc_address := "/data/motion/gyroscope/y"
 
 
 # Called when the node enters the scene tree for the first time.

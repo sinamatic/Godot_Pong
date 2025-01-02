@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://y8vtislkcgb2"]
+[gd_scene load_steps=13 format=3 uid="uid://y8vtislkcgb2"]
 
 [ext_resource type="Texture2D" uid="uid://cd3mv4wrv5ahs" path="res://assets/Bg.png" id="1_kbgq7"]
 [ext_resource type="FontFile" uid="uid://cksbyujvq876h" path="res://assets/pixel_font.ttf" id="2_8bfv2"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://player.gd" id="3_il1xn"]
 [ext_resource type="Script" path="res://ball.gd" id="4_5uxr0"]
 [ext_resource type="Script" path="res://player_2.gd" id="4_060jf"]
+[ext_resource type="Script" path="res://addons/godOSC/scripts/OSCReceiver.gd" id="4_338wd"]
+[ext_resource type="Script" path="res://addons/godOSC/scripts/OSCServer.gd" id="5_26yc0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h58vm"]
 size = Vector2(20, 120)
@@ -42,6 +44,12 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(10, 0)
 shape = SubResource("RectangleShape2D_h58vm")
+
+[node name="OSCReceiver" type="Node" parent="Player"]
+script = ExtResource("4_338wd")
+
+[node name="OSCServer" type="Node" parent="Player"]
+script = ExtResource("5_26yc0")
 
 [node name="Player2" type="StaticBody2D" parent="."]
 position = Vector2(1082, 324)
