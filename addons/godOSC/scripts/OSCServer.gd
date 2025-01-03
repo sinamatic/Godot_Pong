@@ -5,7 +5,7 @@ extends Node
 
 
 ## The port over which to recieve messages
-@export var port = 4747
+@export var port = 4646
 
 ## A dictionary containing all recieved messages.
 var incoming_messages := {}
@@ -76,6 +76,6 @@ func parse_message(packet: PackedByteArray):
 				vals.append(args)
 	
 	incoming_messages[address] = vals
-	# print("OSC Server Empfangene Nachricht:", address, vals)  # Debug-Ausgabe
+	print("P1: OSC Server Empfangene Nachricht:", address, vals)  # Debug-Ausgabe
 
 	

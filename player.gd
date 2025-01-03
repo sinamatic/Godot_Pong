@@ -50,12 +50,12 @@ func _process(delta):
 				if address.ends_with("/x"):
 					# Berechne Zielposition für X
 					normalized_x = win_width / 2.0 + normalized_value * (win_width / 2.0 - p_width / 2.0)
-					print("Empfangene Nachricht: X, Zielposition X:", normalized_x, "Normalisierter X Wert:", normalized_value)
+					print("P1: Empfangene Nachricht: X, Zielposition X:", normalized_x, "Normalisierter X Wert:", normalized_value)
 
 				elif address.ends_with("/y"):
 					# Berechne Zielposition für Y
 					normalized_y = win_height / 2.0 + normalized_value * (win_height / 2.0 - p_height / 2.0)
-					print("Empfangene Nachricht: Y, Zielposition Y:", normalized_y, "Normalisierter Y Wert:", normalized_value)
+					print("P1: Empfangene Nachricht: Y, Zielposition Y:", normalized_y, "Normalisierter Y Wert:", normalized_value)
 
 		# Aktualisiere Paddle-Position für X und Y
 		position.x = lerp(float(position.x), float(normalized_x), delta * 5.0)  # Glättung für X

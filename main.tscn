@@ -78,15 +78,6 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(60, 13)
 shape = SubResource("RectangleShape2D_h58vm")
 
-[node name="OSCReceiver" type="Node" parent="Player2"]
-script = ExtResource("4_338wd")
-
-[node name="OSCServer" type="Node" parent="Player2"]
-script = ExtResource("5_26yc0")
-
-[node name="OSCClient" type="Node" parent="Player2"]
-script = ExtResource("6_yi6qk")
-
 [node name="Ball" type="CharacterBody2D" parent="."]
 position = Vector2(960, 540)
 collision_mask = 3
