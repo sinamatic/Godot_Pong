@@ -2,16 +2,34 @@ extends StaticBody2D
 
 var win_height : int
 var p_height : int
+var p_width : int
+var win_width : int 
 var osc_value : float  # Aktueller OSC-Wert
 
 @onready var osc_receiver : Node = $OSCReceiver
 
 func _ready():
 	win_height = get_viewport_rect().size.y
+	win_width = get_viewport_rect().size.x
 	p_height = $ColorRect.get_size().y
 
+
 func _process(delta):
+	if Input.is_key_pressed(KEY_W):
+		position.y -= get_parent().PADDLE_SPEED * delta
+	elif Input.is_key_pressed(KEY_S):
+		position.y += get_parent().PADDLE_SPEED * delta
+	elif Input.is_key_pressed(KEY_A):
+		position.x -= get_parent().PADDLE_SPEED * delta
+	elif Input.is_key_pressed(KEY_D):
+		position.x += get_parent().PADDLE_SPEED * delta
+
+
+	#limit paddle movement to window
+	position.x = clamp(position.x, 0, win_width - p_width)
+	position.y = clamp(position.y, win_height / 2 - p_height, win_height - p_height)
 	# Überprüfe eingehende Nachrichten
+	
 	if osc_receiver and osc_receiver.has_method("get"):
 		var target_server = $OSCServer
 		if target_server and target_server.incoming_messages.has(osc_receiver.osc_address):
