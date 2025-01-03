@@ -9,11 +9,11 @@ def gyroscope_handler(address, *args):
             args[0]
         )  # Extrahiere den ersten Wert und konvertiere ihn zu float
         print(f"{address}: {value}")
-        godot_client.send_message("/data/motion/gyroscope/y", [value])
+        godot_client.send_message("/data/motion/accelerometer/y", [value])
 
 
 dispatcher = dispatcher.Dispatcher()
-dispatcher.map("/data/motion/gyroscope/y", gyroscope_handler)
+dispatcher.map("/data/motion/accelerometer/y", gyroscope_handler)
 
 # Server configuration for receiving from the iPhone
 ip = "192.168.178.85"

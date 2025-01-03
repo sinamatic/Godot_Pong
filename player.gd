@@ -19,8 +19,8 @@ func _process(delta):
 			target_server.incoming_messages.erase(osc_receiver.osc_address)
 
 			# Skaliere den OSC-Wert auf den Bildschirmbereich
-			var normalized_value = clamp(osc_value, -1.0, 1.0)  # Normalisiere den Wert auf [-1, 1]
-			var target_y = win_height / 2.0 + normalized_value * (win_height / 2.0 - p_height / 2.0)
+			var normalized_value = -clamp(osc_value, -1, 1)  # Normalisiere den Wert auf [-2, 2]
+			var target_y = win_height / 2.0 + 2 * normalized_value * (win_height / 2.0 - p_height / 2.0)
 			
 			# Bewege das Paddle sanft Richtung Zielposition
 			position.y = lerp(float(position.y), float(target_y), delta * 5.0)  # "5.0" ist die Glättungsrate
