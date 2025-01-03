@@ -18,20 +18,31 @@ var incoming_messages := {}
 ## amount of recieved messages * average message rate / 60.
 #@export var parse_rate = 10 deprecated
 var server_p1 = UDPServer.new()
+var server_p2 = UDPServer.new()
 var peers: Array[PacketPeerUDP] = []
 
 func _ready():
 	server_p1.listen(port_p1)
+	server_p2.listen(port_p2)
 
 ## Sets the port for the server to listen on. Can only listen to one port at a time.
 func listen(new_port):
 	port_p1 = new_port
 	server_p1.listen(port_p1)
+	port_p2 = new_port
+	server_p2.listen(port_p2)
 
 func _process(_delta):
 	server_p1.poll()
 	if server_p1.is_connection_available():
 		var peer: PacketPeerUDP = server_p1.take_connection()
+		print("Accepted peer: %s:%s" % [peer.get_packet_ip(), peer.get_packet_port()])
+		# Keep a reference so we can keep contacting the remote peer.
+		peers.append(peer)
+	
+	server_p2.poll()
+	if server_p2.is_connection_available():
+		var peer: PacketPeerUDP = server_p2.take_connection()
 		print("Accepted peer: %s:%s" % [peer.get_packet_ip(), peer.get_packet_port()])
 		# Keep a reference so we can keep contacting the remote peer.
 		peers.append(peer)
