@@ -76,6 +76,6 @@ func parse_message(packet: PackedByteArray):
 				vals.append(args)
 	
 	incoming_messages[address] = vals
-	print("OSC Server Empfangene Nachricht:", address, vals)  # Debug-Ausgabe
+	# print("OSC Server Empfangene Nachricht:", address, vals)  # Debug-Ausgabe
 
 	

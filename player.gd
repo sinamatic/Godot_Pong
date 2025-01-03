@@ -27,25 +27,34 @@ func _process(delta):
 		position.x -= get_parent().PADDLE_SPEED * delta
 	elif Input.is_key_pressed(KEY_D):
 		position.x += get_parent().PADDLE_SPEED * delta
-
+				
 	# Überprüfe eingehende Nachrichten
+# Überprüfe alle eingehenden Nachrichten
 	if osc_receiver and osc_receiver.has_method("get"):
 		var target_server = $OSCServer
-		if target_server and target_server.incoming_messages.has(osc_receiver.osc_address):
-			osc_value = target_server.incoming_messages[osc_receiver.osc_address][0]
-			target_server.incoming_messages.erase(osc_receiver.osc_address)
 
-			# Skaliere den OSC-Wert auf den Bildschirmbereich
-			var normalized_value = -clamp(osc_value, -1, 1)  # Normalisiere den Wert auf [-2, 2]
-			var target_x = win_height / 2.0 + 2 * normalized_value * (win_height / 2.0 - p_height / 2.0)
-			
-			# Bewege das Paddle sanft Richtung Zielposition
-			position.x = lerp(float(position.x), float(target_x), delta * 5.0)  # "5.0" ist die Glättungsrate
+	# Initialisiere Variablen für X und Y
+		var normalized_x = position.x
+		var normalized_y = position.y
 
-			# Debugging-Ausgabe
-			print("Aktuelle Paddle-Position:", position.y, "Normalisierter X Wert:", normalized_value)
-	
+		if target_server:
+			for address in target_server.incoming_messages.keys():
+				var osc_value = target_server.incoming_messages[address][0]
+				target_server.incoming_messages.erase(address)  # Nachricht verarbeiten und entfernen
 
-		# Limit paddle movement to window
-	position.x = clamp(position.x, 0, win_width - p_width)
-	position.y = clamp(position.y, win_height / 2 - p_height, win_height - p_height)
+				# Skaliere den OSC-Wert auf den Bildschirmbereich
+				var normalized_value = -clamp(osc_value, -1, 1)  # Normalisiere den Wert auf [-1, 1]
+
+				if address.ends_with("/x"):
+					# Berechne Zielposition für X
+					normalized_x = win_width / 2.0 + normalized_value * (win_width / 2.0 - p_width / 2.0)
+					print("Empfangene Nachricht: X, Zielposition X:", normalized_x, "Normalisierter X Wert:", normalized_value)
+
+				elif address.ends_with("/y"):
+					# Berechne Zielposition für Y
+					normalized_y = win_height / 2.0 + normalized_value * (win_height / 2.0 - p_height / 2.0)
+					print("Empfangene Nachricht: Y, Zielposition Y:", normalized_y, "Normalisierter Y Wert:", normalized_value)
+
+		# Aktualisiere Paddle-Position für X und Y
+		position.x = lerp(float(position.x), float(normalized_x), delta * 5.0)  # Glättung für X
+		position.y = lerp(float(position.y), float(normalized_y), delta * 5.0)  # Glättung für Y
