@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://y8vtislkcgb2"]
+[gd_scene load_steps=16 format=3 uid="uid://y8vtislkcgb2"]
 
 [ext_resource type="FontFile" uid="uid://cksbyujvq876h" path="res://assets/pixel_font.ttf" id="2_8bfv2"]
 [ext_resource type="Script" path="res://main.gd" id="2_cwu3v"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://addons/godOSC/scripts/OSCServer.gd" id="5_26yc0"]
 [ext_resource type="Script" path="res://addons/godOSC/scripts/OSCClient.gd" id="6_yi6qk"]
 [ext_resource type="Script" path="res://addons/godOSC/scripts/OSCServer2.gd" id="7_qoksa"]
+[ext_resource type="Script" path="res://addons/godOSC/scripts/OSCReceiver2.gd" id="8_d20bw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h58vm"]
 size = Vector2(120, 25)
@@ -79,8 +80,11 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(60, 13)
 shape = SubResource("RectangleShape2D_h58vm")
 
-[node name="OSCServer" type="Node" parent="Player2"]
+[node name="OSCServer2" type="Node" parent="Player2"]
 script = ExtResource("7_qoksa")
+
+[node name="OSCReceiver2" type="Node" parent="Player2"]
+script = ExtResource("8_d20bw")
 
 [node name="Ball" type="CharacterBody2D" parent="."]
 position = Vector2(960, 540)
