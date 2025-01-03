@@ -3,7 +3,7 @@ from pythonosc import osc_server
 from pythonosc import udp_client
 
 
-def gyroscope_handler(address, *args):
+def gyroscope_handler_y(address, *args):
     if args:  # Sicherstellen, dass args nicht leer ist
         value = float(
             args[0]
@@ -12,8 +12,18 @@ def gyroscope_handler(address, *args):
         godot_client.send_message("/data/motion/accelerometer/y", [value])
 
 
+def gyroscope_handler_x(address, *args):
+    if args:  # Sicherstellen, dass args nicht leer ist
+        value = float(
+            args[0]
+        )  # Extrahiere den ersten Wert und konvertiere ihn zu float
+        print(f"{address}: {value}")
+        godot_client.send_message("/data/motion/accelerometer/x", [value])
+
+
 dispatcher = dispatcher.Dispatcher()
-dispatcher.map("/data/motion/accelerometer/y", gyroscope_handler)
+dispatcher.map("/data/motion/accelerometer/y", gyroscope_handler_y)
+dispatcher.map("/data/motion/accelerometer/x", gyroscope_handler_x)
 
 # Server configuration for receiving from the iPhone
 ip = "192.168.178.85"
