@@ -1,5 +1,5 @@
 @icon("res://addons/godOSC/images/OSCClient.svg")
-class_name OSCClient
+class_name OSCClient2
 extends Node
 
 ## Client for sending Open Sound Control messages over UDP. Use one OSCClient per server you want to send to.
@@ -7,15 +7,15 @@ extends Node
 ## The IP Address of the server to send to.
 @export var ip_address = "127.0.0.1"
 ## The port to send to.
-@export var port_p1 = 4646
+@export var port_p2 = 4747
 var client = PacketPeerUDP.new()
 
 
 func _ready():
-	connect_socket(ip_address, port_p1)
+	connect_socket(ip_address, port_p2)
 
 ## Connect to an OSC server. Can only send to one OSC server at a time.
-func connect_socket(new_ip = "127.0.0.1", new_port = 4646):
+func connect_socket(new_ip = "127.0.0.1", new_port = 4747):
 	close_socket()
 	client.set_dest_address(new_ip, new_port)
 
