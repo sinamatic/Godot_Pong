@@ -5,7 +5,7 @@ extends Node
 
 
 ## The port over which to recieve messages
-@export var port = 4646
+@export var port = 4747
 
 ## A dictionary containing all recieved messages.
 var incoming_messages := {}

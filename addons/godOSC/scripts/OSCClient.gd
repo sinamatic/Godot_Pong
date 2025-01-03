@@ -6,7 +6,7 @@ extends Node
 ## The IP Address of the server to send to.
 @export var ip_address = "127.0.0.1"
 ## The port to send to.
-@export var port = 4646
+@export var port = 4747
 var client = PacketPeerUDP.new()
 
 
@@ -14,7 +14,7 @@ func _ready():
 	connect_socket(ip_address, port)
 
 ## Connect to an OSC server. Can only send to one OSC server at a time.
-func connect_socket(new_ip = "127.0.0.1", new_port = 4646):
+func connect_socket(new_ip = "127.0.0.1", new_port = 4747):
 	close_socket()
 	client.set_dest_address(new_ip, new_port)
 

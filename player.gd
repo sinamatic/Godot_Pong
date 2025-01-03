@@ -1,3 +1,5 @@
+
+
 extends StaticBody2D
 
 var win_height: int
@@ -27,8 +29,8 @@ func _process(delta):
 		position.x -= get_parent().PADDLE_SPEED * delta
 	elif Input.is_key_pressed(KEY_D):
 		position.x += get_parent().PADDLE_SPEED * delta
-				
-	# Überprüfe eingehende Nachrichten
+
+
 # Überprüfe alle eingehenden Nachrichten
 	if osc_receiver and osc_receiver.has_method("get"):
 		var target_server = $OSCServer
