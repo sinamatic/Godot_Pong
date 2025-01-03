@@ -79,9 +79,19 @@ Neue Idee dann: DataOSC App am Handy und dann mit hoch bzw. runter kippen vom Ha
 
 # ToDo
 
-- Kommunikation zwischen Python und Godot oder die Daten von DataOSC direkt in Godot?
-- ggf. Voicecontrol doch noch realisieren? Aber wie unterschiedet man dann beim Multiplayer 2 Stimmen? 2 Mikrofone ggf. verwenden? Schwierig
+DONE - Kommunikation zwischen Python und Godot oder die Daten von DataOSC direkt in Godot?
+DONE - 2 Handys mit DataOSC für 2 Player verwenden und 2 Ports festlegen?
+2025-01-03
 
-Advanced
+- [ ] Startbildschirm erstellen: Auswahl der Paddle-Farbe für Player1(links) und Player2(rechts)
+- [ ] Normalisierung in Skripten rausnehmen und Y Position begrenzen
+- [ ] Keyboardsteuerung optimieren, sodass Paddle nicht mehr ausm Spiel raus kann
+- [ ] Cooles / Lustiges Hintergrundbild einfügen
+- [ ] Score überarbeiten, wenn Ball auf Paddle trifft solls punkte geben, wenn kein Paddle trifft, dann GameOver
+- [ ] Highscoreliste erstellen und neuen Highscore eintragen wenn Spiel vorbei ist
 
-- 2 Handys mit DataOSC für 2 Player verwenden und 2 Ports festlegen?
+Optional
+
+- [ ] Ggf. Schwierigkeit mit der Zeit erhöhen: Paddle wird zB Schmaler nach 2 min oder nach 20 scores?
+- [ ] Münzen random einblenden, wenn Münze mit Paddle getroffen Score +1 und Paddle breiter?
+- [ ] Score ggf. speichern und davon dann in Ballshop neue Bälle kaufen, zB Dicker oder Rechteckig mit anderer Physik o.Ä.

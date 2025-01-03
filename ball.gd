@@ -34,9 +34,12 @@ func _physics_process(delta):
 
 func random_direction():
 	var new_dir := Vector2()
+	# Wählt zufällig, ob der Ball nach links oder rechts startet
 	new_dir.x = [1, -1].pick_random()
-	new_dir.y = randf_range(-1, 1)
+	# Setzt die Y-Komponente auf einen negativen Wert, damit der Ball nach oben geht
+	new_dir.y = randf_range(-1, -0.1) # Negative Werte zwischen -1 und -0.1
 	return new_dir.normalized()
+
 
 func new_direction(collider):
 	var ball_y = position.y
