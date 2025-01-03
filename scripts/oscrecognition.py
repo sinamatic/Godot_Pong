@@ -5,14 +5,14 @@ import threading
 
 
 # Handler für iPhone 1
-def p1_gyroscope_handler_y(address, *args):
+def p1_accelerometer_handler_y(address, *args):
     if args:  # Sicherstellen, dass args nicht leer ist
         value = float(args[0])
         print("p1: ", f"{address}: {value}")
         p1_godot_client.send_message("/data/motion/accelerometer/x", [value])
 
 
-def p1_gyroscope_handler_x(address, *args):
+def p1_accelerometer_handler_x(address, *args):
     if args:  # Sicherstellen, dass args nicht leer ist
         value = float(args[0])
         print("p1: ", f"{address}: {value}")
@@ -20,14 +20,14 @@ def p1_gyroscope_handler_x(address, *args):
 
 
 # Handler für iPhone 2
-def p2_gyroscope_handler_y(address, *args):
+def p2_accelerometer_handler_y(address, *args):
     if args:  # Sicherstellen, dass args nicht leer ist
         value = float(args[0])
         print("p2: ", f"{address}: {value}")
         p2_godot_client.send_message("/data/motion/accelerometer/x", [value])
 
 
-def p2_gyroscope_handler_x(address, *args):
+def p2_accelerometer_handler_x(address, *args):
     if args:  # Sicherstellen, dass args nicht leer ist
         value = float(args[0])
         print("p2: ", f"{address}: {value}")
@@ -36,13 +36,13 @@ def p2_gyroscope_handler_x(address, *args):
 
 # Dispatcher und Server für iPhone 1
 dispatcher1 = dispatcher.Dispatcher()
-dispatcher1.map("/data/motion/accelerometer/y", p1_gyroscope_handler_y)
-dispatcher1.map("/data/motion/accelerometer/x", p1_gyroscope_handler_x)
+dispatcher1.map("/data/motion/accelerometer/y", p1_accelerometer_handler_y)
+dispatcher1.map("/data/motion/accelerometer/x", p1_accelerometer_handler_x)
 
 # Dispatcher und Server für iPhone 2
 dispatcher2 = dispatcher.Dispatcher()
-dispatcher2.map("/data/motion/accelerometer/y", p2_gyroscope_handler_y)
-dispatcher2.map("/data/motion/accelerometer/x", p2_gyroscope_handler_x)
+dispatcher2.map("/data/motion/accelerometer/y", p2_accelerometer_handler_y)
+dispatcher2.map("/data/motion/accelerometer/x", p2_accelerometer_handler_x)
 
 # Server- und Client-Konfiguration für iPhone 1
 p1_ip = "192.168.178.85"
