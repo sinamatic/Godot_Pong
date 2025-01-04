@@ -41,8 +41,8 @@ func _physics_process(delta):
 			$"../Hud/PlayerScore".text = str(score)
 			
 			activescoring = 0
-			print("activescoring:")
-			print(activescoring)
+			# print("activescoring:")
+			# print(activescoring)
 			
 			if (score > highscore):
 				highscore = score
@@ -51,8 +51,8 @@ func _physics_process(delta):
 		else:
 			dir = dir.bounce(collision.get_normal())
 			activescoring = 1
-			print("activescoring:")
-			print(activescoring)
+			# print("activescoring:")
+			# print(activescoring)
 
 func random_direction():
 	var new_dir := Vector2()
