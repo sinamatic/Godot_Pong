@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bljyb4i1le8k7"]
+[gd_scene load_steps=5 format=3 uid="uid://bljyb4i1le8k7"]
 
+[ext_resource type="Script" path="res://main_menu.gd" id="1_8lsve"]
 [ext_resource type="FontFile" uid="uid://cksbyujvq876h" path="res://assets/pixel_font.ttf" id="1_m5cd8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2g4q"]
@@ -15,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8lsve")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -64,3 +66,6 @@ theme_override_fonts/font = ExtResource("1_m5cd8")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_37ll1")
 text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/GameStart" to="." method="_on_game_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
