@@ -17,7 +17,7 @@ func _ready():
 func new_ball():
 	score = 0
 	$"../Hud/PlayerScore".text = str(score)
-	$"../Hud/HighScore".text = str(highscore)
+	$"../Hud/HighScore".text = str(Globals.highscore)
 	#randomize start position and direction
 	position.x = win_size.x / 2
 	position.y = randi_range(200, win_size.y - 200)
@@ -44,9 +44,9 @@ func _physics_process(delta):
 			# print("activescoring:")
 			# print(activescoring)
 			
-			if (score > highscore):
-				highscore = score
-				$"../Hud/HighScore".text = str(highscore)
+			if (score > Globals.highscore):
+				Globals.highscore = score
+				$"../Hud/HighScore".text = str(Globals.highscore)
 		#if it hits a wall
 		else:
 			dir = dir.bounce(collision.get_normal())
