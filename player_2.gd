@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+const MOTION_MULTIPLIER = 4.0
+
 var win_height: int
 var p_height: int
 var p_width: int
@@ -8,14 +10,18 @@ var osc_value: float  # Aktueller OSC-Wert
 var paddle_position_x: float
 var paddle_position_y: float
 
+
 @onready var osc_receiver2: Node = $OSCReceiver2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	win_height = get_viewport_rect().size.y
-	win_width = get_viewport_rect().size.x
+	win_height = $"../Background".size.y
+	win_width = $"../Background".size.x
 	p_height = $ColorRect.get_size().y
 	p_width = $ColorRect.get_size().x
+	
+	# print("Position Y:", position.y, "Win Height: ", win_height, "Paddle Height: ", p_height, "Win Width: ", win_width)
+	# print("Viewport w: ", get_viewport_rect().size.x, "Viewport height: ", get_viewport_rect().size.y)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -45,7 +51,7 @@ func _process(delta):
 				target_server.incoming_messages.erase(address)  # Nachricht verarbeiten und entfernen
 
 				# Skaliere den OSC-Wert auf den Bildschirmbereich
-				var normalized_value = -clamp(osc_value, -1, 1)  # Normalisiere den Wert auf [-1, 1]
+				var normalized_value = -MOTION_MULTIPLIER * clamp(osc_value, -1, 1)  # Normalisiere den Wert auf [-1, 1]
 
 				if address.ends_with("/x"):
 					# Berechne Zielposition für X
@@ -58,8 +64,11 @@ func _process(delta):
 					print("P2: Empfangene Nachricht: Y, Zielposition Y:", normalized_y, "Normalisierter Y Wert:", normalized_value)
 
 		# Aktualisiere Paddle-Position für X und Y
-		position.x = lerp(float(position.x), float(normalized_x), delta * 5.0)  # Glättung für X
-		position.y = lerp(float(position.y), float(normalized_y), delta * 5.0)  # Glättung für Y
+		# Begrenzung der X- und Y-Position
+		# Aktualisiere Paddle-Position für X und Y mit Begrenzung
+		normalized_x = clamp(normalized_x, 0, win_width - p_width)
+		normalized_y = clamp(normalized_y, win_height / 2 - p_height, win_height - p_height)
 
-	#limit paddle movement to window
-	# 
+		# Setze die geglättete Position
+		position.x = lerp(float(position.x), float(normalized_x), delta * 5.0)
+		position.y = lerp(float(position.y), float(normalized_y), delta * 5.0)

@@ -45,7 +45,7 @@ dispatcher2.map("/data/motion/accelerometer/y", p2_accelerometer_handler_y)
 dispatcher2.map("/data/motion/accelerometer/x", p2_accelerometer_handler_x)
 
 # Server- und Client-Konfiguration für iPhone 1
-p1_ip = "192.168.178.87"
+p1_ip = "192.168.178.85"
 p1_port = 5005
 p1_godot_ip = "127.0.0.1"
 p1_godot_port = 4646
