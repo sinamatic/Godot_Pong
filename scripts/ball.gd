@@ -74,8 +74,9 @@ func new_direction(collider):
 	
 	#flip the horizontal direction
 	if dir.x > 0:
-		new_dir.x = -1
-	else:
 		new_dir.x = 1
-	new_dir.y = (dist / (collider.p_height / 2)) * MAX_Y_VECTOR
+	else:
+		new_dir.x = -1
+	# new_dir.y =  (dist / (collider.p_height / 2)) * MAX_Y_VECTOR
+	new_dir.y =  (dist / (randf_range(0.75, 1.25) * collider.p_height / 2)) * MAX_Y_VECTOR
 	return new_dir.normalized()
