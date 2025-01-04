@@ -28,6 +28,9 @@ func _process(delta):
 	elif Input.is_action_pressed("ui_right"):
 		position.x += get_parent().PADDLE_SPEED * delta
 		
+	position.x = clamp(position.x, 0, win_width - p_width)
+	position.y = clamp(position.y, win_height / 2 - p_height, win_height - p_height)
+
 # Überprüfe alle eingehenden Nachrichten
 	if osc_receiver2 and osc_receiver2.has_method("get"):
 		var target_server = $OSCServer2
@@ -59,5 +62,4 @@ func _process(delta):
 		position.y = lerp(float(position.y), float(normalized_y), delta * 5.0)  # Glättung für Y
 
 	#limit paddle movement to window
-	# position.x = clamp(position.x, 0, win_width - p_width)
-	# position.y = clamp(position.y, win_height / 2 - p_height, win_height - p_height)
+	# 

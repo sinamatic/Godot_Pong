@@ -17,8 +17,9 @@ var paddle_position_y: float
 
 
 func _ready():
-	win_height = get_viewport_rect().size.y
-	win_width = get_viewport_rect().size.x
+	win_height = $"../Background".size.y
+	# win_height = get_viewport_rect().size.y
+	win_width = $"../Background".size.x
 	p_height = $ColorRect.get_size().y
 	p_width = $ColorRect.get_size().x
 
@@ -32,7 +33,9 @@ func _process(delta):
 		position.x -= get_parent().PADDLE_SPEED * delta
 	elif Input.is_key_pressed(KEY_D):
 		position.x += get_parent().PADDLE_SPEED * delta
-
+	
+	position.x = clamp(position.x, 0, win_width - p_width)
+	position.y = clamp(position.y, win_height / 2 - p_height, win_height - p_height)
 
 # Überprüfe alle eingehenden Nachrichten
 	if osc_receiver and osc_receiver.has_method("get"):
