@@ -54,3 +54,8 @@ func new_direction(collider):
 		new_dir.x = 1
 	new_dir.y = (dist / (collider.p_height / 2)) * MAX_Y_VECTOR
 	return new_dir.normalized()
+
+signal hit_player
+func _on_body_entered(body):
+	if body.is_in_group("Player") or body.is_in_group("Player2"):  # Wenn der Ball den Spieler trifft
+		emit_signal("hit_player")

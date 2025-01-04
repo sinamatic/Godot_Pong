@@ -10,6 +10,7 @@ var osc_value: float  # Aktueller OSC-Wert
 var paddle_position_x: float
 var paddle_position_y: float
 
+
 @onready var osc_receiver: Node = $OSCReceiver
 
 
