@@ -24,3 +24,7 @@ window/size/resizable=false
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godOSC/plugin.cfg")
+
+[rendering]
+
+2d/size/resizable=false

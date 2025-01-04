@@ -2,7 +2,7 @@
 
 extends StaticBody2D
 
-const MOTION_MULTIPLIER = 2.0
+const MOTION_MULTIPLIER = 4.0
 
 var win_height: int
 var p_height: int
@@ -18,11 +18,12 @@ var paddle_position_y: float
 
 func _ready():
 	win_height = $"../Background".size.y
-	# win_height = get_viewport_rect().size.y
 	win_width = $"../Background".size.x
 	p_height = $ColorRect.get_size().y
 	p_width = $ColorRect.get_size().x
-
+	
+	# print("Position Y:", position.y, "Win Height: ", win_height, "Paddle Height: ", p_height, "Win Width: ", win_width)
+	# print("Viewport w: ", get_viewport_rect().size.x, "Viewport height: ", get_viewport_rect().size.y)
 
 func _process(delta):
 	if Input.is_key_pressed(KEY_W):
@@ -64,5 +65,11 @@ func _process(delta):
 					print("P1: Empfangene Nachricht: Y, Zielposition Y:", normalized_y, "Normalisierter Y Wert:", normalized_value)
 
 		# Aktualisiere Paddle-Position für X und Y
-		position.x = lerp(float(position.x), float(normalized_x), delta * 5.0)  # Glättung für X
-		position.y = lerp(float(position.y), float(normalized_y), delta * 5.0)  # Glättung für Y
+		# Begrenzung der X- und Y-Position
+		# Aktualisiere Paddle-Position für X und Y mit Begrenzung
+		normalized_x = clamp(normalized_x, 0, win_width - p_width)
+		normalized_y = clamp(normalized_y, win_height / 2 - p_height, win_height - p_height)
+
+		# Setze die geglättete Position
+		position.x = lerp(float(position.x), float(normalized_x), delta * 5.0)
+		position.y = lerp(float(position.y), float(normalized_y), delta * 5.0)

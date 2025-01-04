@@ -8,10 +8,5 @@ func _on_ball_timer_timeout():
 	$Ball.new_ball()
 
 # Soll eig neues Spiel werden und Highscore speichern
-func _on_score_left_body_entered(body):
-	
+func _on_score_body_entered(body):
 	$BallTimer.start()
-
-func on_ball_hit():
-	score += 1
-	$Hud/PlayerScore.text = str(score)
