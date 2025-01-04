@@ -2,6 +2,8 @@
 
 extends StaticBody2D
 
+const MOTION_MULTIPLIER = 2.0
+
 var win_height: int
 var p_height: int
 var p_width: int
@@ -46,7 +48,7 @@ func _process(delta):
 				target_server.incoming_messages.erase(address)  # Nachricht verarbeiten und entfernen
 
 				# Skaliere den OSC-Wert auf den Bildschirmbereich
-				var normalized_value = -clamp(osc_value, -1, 1)  # Normalisiere den Wert auf [-1, 1]
+				var normalized_value = -MOTION_MULTIPLIER * clamp(osc_value, -1, 1)  # Normalisiere den Wert auf [-1, 1]
 
 				if address.ends_with("/x"):
 					# Berechne Zielposition für X
