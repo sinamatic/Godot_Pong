@@ -13,6 +13,8 @@ func _ready():
 	win_size = $"../Background".size
 
 func new_ball():
+	score = 0
+	$"../Hud/PlayerScore".text = str(score)
 	#randomize start position and direction
 	position.x = win_size.x / 2
 	position.y = randi_range(200, win_size.y - 200)
