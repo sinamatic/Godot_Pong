@@ -5,7 +5,7 @@ const START_SPEED : int = 500
 const ACCEL : int = 50
 var speed : int
 var dir : Vector2
-const MAX_Y_VECTOR : float = 0.6
+const MAX_Y_VECTOR : float = 0.9
 var score = 0
 var highscore = 0
 var activescoring = 0
@@ -47,6 +47,7 @@ func _physics_process(delta):
 			if (score > Globals.highscore):
 				Globals.highscore = score
 				$"../Hud/HighScore".text = str(Globals.highscore)
+
 		#if it hits a wall
 		else:
 			dir = dir.bounce(collision.get_normal())

@@ -24,7 +24,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0.223529, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="Headline" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.118519
@@ -34,6 +34,32 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_m5cd8")
 theme_override_font_sizes/font_size = 50
 text = "Game Name"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Highscore_Headline" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.777778
+anchor_right = 1.0
+anchor_bottom = 0.824074
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_m5cd8")
+theme_override_font_sizes/font_size = 50
+text = "Highscore"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Highscore_Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.866667
+anchor_right = 1.0
+anchor_bottom = 0.912963
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_m5cd8")
+theme_override_font_sizes/font_size = 50
+text = "0"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
