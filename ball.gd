@@ -7,6 +7,7 @@ var speed : int
 var dir : Vector2
 const MAX_Y_VECTOR : float = 0.6
 var score = 0
+var highscore = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +16,7 @@ func _ready():
 func new_ball():
 	score = 0
 	$"../Hud/PlayerScore".text = str(score)
+	$"../Hud/HighScore".text = str(highscore)
 	#randomize start position and direction
 	position.x = win_size.x / 2
 	position.y = randi_range(200, win_size.y - 200)
@@ -33,6 +35,10 @@ func _physics_process(delta):
 			dir = new_direction(collider)
 			score += 1
 			$"../Hud/PlayerScore".text = str(score)
+			
+			if (score > highscore):
+				highscore = score
+				$"../Hud/HighScore".text = str(highscore)
 		#if it hits a wall
 		else:
 			dir = dir.bounce(collision.get_normal())
@@ -42,7 +48,7 @@ func random_direction():
 	# Wählt zufällig, ob der Ball nach links oder rechts startet
 	new_dir.x = [1, -1].pick_random()
 	# Setzt die Y-Komponente auf einen negativen Wert, damit der Ball nach oben geht
-	new_dir.y = randf_range(-1, -0.1) # Negative Werte zwischen -1 und -0.1
+	new_dir.y = randf_range(-1, -0.5) # Negative Werte zwischen -1 und -0.1
 	return new_dir.normalized()
 
 
