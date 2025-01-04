@@ -83,16 +83,18 @@ DONE - Kommunikation zwischen Python und Godot oder die Daten von DataOSC direkt
 DONE - 2 Handys mit DataOSC für 2 Player verwenden und 2 Ports festlegen?
 2025-01-03
 
-- [ ] Startbildschirm erstellen: Auswahl der Paddle-Farbe für Player1(links) und Player2(rechts)
+- [x] Startbildschirm erstellen
 - [x] Normalisierung in Skripten rausnehmen und Y Position begrenzen
 - [x] Keyboardsteuerung optimieren, sodass Paddle nicht mehr ausm Spiel raus kann
 - [ ] Cooles / Lustiges Hintergrundbild einfügen
 - [x] Score überarbeiten, wenn Ball auf Paddle trifft solls punkte geben, wenn kein Paddle trifft, dann GameOver
-- [ ] Highscoreliste erstellen und neuen Highscore eintragen wenn Spiel vorbei ist
-- [ ] Fehler beheben, dass die ganze zeit hits gesammelt werden wenn paddle den ball anschiebt
+- [x] Highscoreliste erstellen und neuen Highscore eintragen wenn Spiel vorbei ist
+- [x] Fehler beheben, dass die ganze zeit hits gesammelt werden wenn paddle den ball anschiebt
 
 Optional
 
+- [ ] Paddlefarben auswählen
+- [ ] Highscore liste erstellen und über button aufrufbar machen?
 - [ ] Ggf. Schwierigkeit mit der Zeit erhöhen: Paddle wird zB Schmaler nach 2 min oder nach 20 scores?
   - Geschwindigkeit vom Ball schneller
   - Ballgröße verändern
