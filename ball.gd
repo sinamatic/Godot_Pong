@@ -6,6 +6,7 @@ const ACCEL : int = 50
 var speed : int
 var dir : Vector2
 const MAX_Y_VECTOR : float = 0.6
+var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,6 +29,8 @@ func _physics_process(delta):
 		if collider == $"../Player" or collider == $"../Player2":
 			speed += ACCEL
 			dir = new_direction(collider)
+			score += 1
+			$"../Hud/PlayerScore".text = str(score)
 		#if it hits a wall
 		else:
 			dir = dir.bounce(collision.get_normal())
