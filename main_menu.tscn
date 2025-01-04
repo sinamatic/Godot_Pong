@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://bljyb4i1le8k7"]
+
+[ext_resource type="FontFile" uid="uid://cksbyujvq876h" path="res://assets/pixel_font.ttf" id="1_m5cd8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2g4q"]
+bg_color = Color(0.626677, 0.00113242, 0.756439, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37ll1"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0.223529, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.118519
+anchor_right = 1.0
+anchor_bottom = 0.164815
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_m5cd8")
+theme_override_font_sizes/font_size = 50
+text = "Game Name"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -172.0
+offset_right = 296.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameStart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_m5cd8")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_m2g4q")
+text = "Game Start"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_m5cd8")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_37ll1")
+text = "Exit"
