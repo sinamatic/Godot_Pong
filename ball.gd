@@ -8,6 +8,7 @@ var dir : Vector2
 const MAX_Y_VECTOR : float = 0.6
 var score = 0
 var highscore = 0
+var activescoring = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,8 +34,15 @@ func _physics_process(delta):
 		if collider == $"../Player" or collider == $"../Player2":
 			speed += ACCEL
 			dir = new_direction(collider)
-			score += 1
+			
+			if (activescoring):
+				score += 1
+				
 			$"../Hud/PlayerScore".text = str(score)
+			
+			activescoring = 0
+			print("activescoring:")
+			print(activescoring)
 			
 			if (score > highscore):
 				highscore = score
@@ -42,6 +50,9 @@ func _physics_process(delta):
 		#if it hits a wall
 		else:
 			dir = dir.bounce(collision.get_normal())
+			activescoring = 1
+			print("activescoring:")
+			print(activescoring)
 
 func random_direction():
 	var new_dir := Vector2()

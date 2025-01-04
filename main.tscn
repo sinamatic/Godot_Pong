@@ -17,11 +17,11 @@ size = Vector2(120, 25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w32bf"]
 size = Vector2(10, 10)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sp7ob"]
-size = Vector2(64, 1080)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8hgk"]
 size = Vector2(1920, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sp7ob"]
+size = Vector2(64, 1080)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmkg7"]
 size = Vector2(34.7628, 14.8851)
@@ -114,16 +114,16 @@ shape = SubResource("RectangleShape2D_w32bf")
 [node name="Borders" type="StaticBody2D" parent="."]
 collision_layer = 2
 
-[node name="Right" type="CollisionShape2D" parent="Borders"]
-position = Vector2(1952, 540)
-shape = SubResource("RectangleShape2D_sp7ob")
-
 [node name="Top" type="CollisionShape2D" parent="Borders"]
 position = Vector2(960, -32)
 shape = SubResource("RectangleShape2D_h8hgk")
 
 [node name="Left" type="CollisionShape2D" parent="Borders"]
 position = Vector2(-32, 540)
+shape = SubResource("RectangleShape2D_sp7ob")
+
+[node name="Right" type="CollisionShape2D" parent="Borders"]
+position = Vector2(1952, 540)
 shape = SubResource("RectangleShape2D_sp7ob")
 
 [node name="Score" type="Area2D" parent="."]
