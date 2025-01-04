@@ -86,10 +86,13 @@ DONE - 2 Handys mit DataOSC für 2 Player verwenden und 2 Ports festlegen?
 - [x] Startbildschirm erstellen
 - [x] Normalisierung in Skripten rausnehmen und Y Position begrenzen
 - [x] Keyboardsteuerung optimieren, sodass Paddle nicht mehr ausm Spiel raus kann
-- [ ] Cooles / Lustiges Hintergrundbild einfügen
+- [ ] Design überarbeiten
 - [x] Score überarbeiten, wenn Ball auf Paddle trifft solls punkte geben, wenn kein Paddle trifft, dann GameOver
 - [x] Highscoreliste erstellen und neuen Highscore eintragen wenn Spiel vorbei ist
 - [x] Fehler beheben, dass die ganze zeit hits gesammelt werden wenn paddle den ball anschiebt
+- [ ] Gamename überlegen und kurzbeschreibung erstellen
+- [ ] Geschwindigkeit über die Zeit anpassen
+- [ ] Geschwindigkeit im Spiel anzeigen lassen
 
 Optional
 

@@ -5,7 +5,7 @@ const START_SPEED : int = 500
 const ACCEL : int = 50
 var speed : int
 var dir : Vector2
-const MAX_Y_VECTOR : float = 0.9
+const MAX_Y_VECTOR : float = 0.7
 var score = 0
 var highscore = 0
 var activescoring = 0
