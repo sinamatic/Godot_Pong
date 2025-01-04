@@ -34,9 +34,12 @@ func _physics_process(delta):
 
 func random_direction():
 	var new_dir := Vector2()
+	# Wählt zufällig, ob der Ball nach links oder rechts startet
 	new_dir.x = [1, -1].pick_random()
-	new_dir.y = randf_range(-1, 1)
+	# Setzt die Y-Komponente auf einen negativen Wert, damit der Ball nach oben geht
+	new_dir.y = randf_range(-1, -0.1) # Negative Werte zwischen -1 und -0.1
 	return new_dir.normalized()
+
 
 func new_direction(collider):
 	var ball_y = position.y
@@ -51,3 +54,8 @@ func new_direction(collider):
 		new_dir.x = 1
 	new_dir.y = (dist / (collider.p_height / 2)) * MAX_Y_VECTOR
 	return new_dir.normalized()
+
+signal hit_player
+func _on_body_entered(body):
+	if body.is_in_group("Player") or body.is_in_group("Player2"):  # Wenn der Ball den Spieler trifft
+		emit_signal("hit_player")

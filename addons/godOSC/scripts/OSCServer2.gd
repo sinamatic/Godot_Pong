@@ -1,11 +1,11 @@
 @icon("res://addons/godOSC/images/OSCServer.svg")
-class_name OSCServer
+class_name OSCServer2
 extends Node
 ## Server for recieving Open Sound Control messages over UDP. 
 
 
 ## The port over which to recieve messages
-@export var port_p1 = 4646
+@export var port_p2 = 4747
 
 ## A dictionary containing all recieved messages.
 var incoming_messages := {}
@@ -16,22 +16,22 @@ var incoming_messages := {}
 ## a reasonable parse rate would be to use the following equation:
 ## amount of recieved messages * average message rate / 60.
 #@export var parse_rate = 10 deprecated
-var server_p1 = UDPServer.new()
+var server_p2 = UDPServer.new()
 var peers: Array[PacketPeerUDP] = []
 
 func _ready():
-	server_p1.listen(port_p1)
+	server_p2.listen(port_p2)
 
 ## Sets the port for the server to listen on. Can only listen to one port at a time.
 func listen(new_port):
-	port_p1 = new_port
-	server_p1.listen(port_p1)
 	
+	port_p2 = new_port
+	server_p2.listen(port_p2)
 
 func _process(_delta):
-	server_p1.poll()
-	if server_p1.is_connection_available():
-		var peer: PacketPeerUDP = server_p1.take_connection()
+	server_p2.poll()
+	if server_p2.is_connection_available():
+		var peer: PacketPeerUDP = server_p2.take_connection()
 		print("Accepted peer: %s:%s" % [peer.get_packet_ip(), peer.get_packet_port()])
 		# Keep a reference so we can keep contacting the remote peer.
 		peers.append(peer)
@@ -77,6 +77,6 @@ func parse_message(packet: PackedByteArray):
 				vals.append(args)
 	
 	incoming_messages[address] = vals
-	print("P1: OSC Server Empfangene Nachricht:", address, vals)  # Debug-Ausgabe
+	print("P2: OSC Server Empfangene Nachricht:", address, vals)  # Debug-Ausgabe
 
 	
