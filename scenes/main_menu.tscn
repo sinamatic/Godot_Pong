@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bljyb4i1le8k7"]
 
-[ext_resource type="Script" path="res://main_menu.gd" id="1_8lsve"]
-[ext_resource type="FontFile" uid="uid://cksbyujvq876h" path="res://assets/pixel_font.ttf" id="1_m5cd8"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_yq35c"]
+[ext_resource type="FontFile" uid="uid://cksbyujvq876h" path="res://assets/pixel_font.ttf" id="2_v2aic"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2g4q"]
 bg_color = Color(0.626677, 0.00113242, 0.756439, 1)
@@ -16,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8lsve")
+script = ExtResource("1_yq35c")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -31,7 +31,7 @@ anchor_top = 0.118519
 anchor_right = 1.0
 anchor_bottom = 0.164815
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_m5cd8")
+theme_override_fonts/font = ExtResource("2_v2aic")
 theme_override_font_sizes/font_size = 50
 text = "Game Name"
 horizontal_alignment = 1
@@ -44,7 +44,7 @@ anchor_top = 0.777778
 anchor_right = 1.0
 anchor_bottom = 0.824074
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_m5cd8")
+theme_override_fonts/font = ExtResource("2_v2aic")
 theme_override_font_sizes/font_size = 50
 text = "Highscore"
 horizontal_alignment = 1
@@ -57,7 +57,7 @@ anchor_top = 0.866667
 anchor_right = 1.0
 anchor_bottom = 0.912963
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_m5cd8")
+theme_override_fonts/font = ExtResource("2_v2aic")
 theme_override_font_sizes/font_size = 50
 text = "0"
 horizontal_alignment = 1
@@ -80,7 +80,7 @@ grow_vertical = 2
 [node name="GameStart" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_m5cd8")
+theme_override_fonts/font = ExtResource("2_v2aic")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_m2g4q")
 text = "Game Start"
@@ -88,7 +88,7 @@ text = "Game Start"
 [node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_m5cd8")
+theme_override_fonts/font = ExtResource("2_v2aic")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_37ll1")
 text = "Exit"

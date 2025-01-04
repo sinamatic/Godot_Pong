@@ -2,17 +2,18 @@ extends CharacterBody2D
 
 var win_size : Vector2
 const START_SPEED : int = 500
-const ACCEL : int = 50
+const ACCEL : int = 75
 var speed : int
 var dir : Vector2
 const MAX_Y_VECTOR : float = 0.9
 var score = 0
-var highscore = 0
 var activescoring = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	win_size = $"../Background".size
+	win_size = $"../Playground/Background".size
+	$"../Hud/PlayerScore".text = str(score)
+	$"../Hud/HighScore".text = str(Globals.highscore)
 
 func new_ball():
 	score = 0
@@ -31,12 +32,13 @@ func _physics_process(delta):
 	if collision:
 		collider = collision.get_collider()
 		#if ball hits paddle
-		if collider == $"../Player" or collider == $"../Player2":
-			speed += ACCEL
-			dir = new_direction(collider)
+		if collider == $"../Players/Player1" or collider == $"../Players/Player2":			
 			
 			if (activescoring):
+				speed += ACCEL
 				score += 1
+				
+			dir = new_direction(collider)
 				
 			$"../Hud/PlayerScore".text = str(score)
 			

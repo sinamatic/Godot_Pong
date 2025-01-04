@@ -1,6 +1,4 @@
-
-
-extends StaticBody2D
+extends CharacterBody2D
 
 const MOTION_MULTIPLIER = 4.0
 
@@ -15,10 +13,9 @@ var paddle_position_y: float
 
 @onready var osc_receiver: Node = $OSCReceiver
 
-
 func _ready():
-	win_height = $"../Background".size.y
-	win_width = $"../Background".size.x
+	win_height = $"../../Playground/Background".size.y
+	win_width = $"../../Playground/Background".size.x
 	p_height = $ColorRect.get_size().y
 	p_width = $ColorRect.get_size().x
 	
@@ -27,13 +24,13 @@ func _ready():
 
 func _process(delta):
 	if Input.is_key_pressed(KEY_W):
-		position.y -= get_parent().PADDLE_SPEED * delta
+		position.y -= get_parent().get_parent().PADDLE_SPEED * delta
 	elif Input.is_key_pressed(KEY_S):
-		position.y += get_parent().PADDLE_SPEED * delta
+		position.y += get_parent().get_parent().PADDLE_SPEED * delta
 	elif Input.is_key_pressed(KEY_A):
-		position.x -= get_parent().PADDLE_SPEED * delta
+		position.x -= get_parent().get_parent().PADDLE_SPEED * delta
 	elif Input.is_key_pressed(KEY_D):
-		position.x += get_parent().PADDLE_SPEED * delta
+		position.x += get_parent().get_parent().PADDLE_SPEED * delta
 	
 	position.x = clamp(position.x, 0, win_width - p_width)
 	position.y = clamp(position.y, win_height / 2 - p_height, win_height - p_height)
