@@ -3,6 +3,8 @@ extends Control
 const SAVE_FILE_PATH = "user://highscore.save"
 const PLAYER_COUNT_FILE = "user://player_count.save"
 
+
+
 # Wird aufgerufen, wenn die Szene betreten wird.
 func _ready():
 	# Highscore aus der Datei laden und in Globals speichern
@@ -12,7 +14,7 @@ func _ready():
 	# Spieleranzahl aus der Datei laden und setzen
 	var player_count = load_player_count()
 	$VBoxContainer/OptionButton.select(player_count - 2)  # Annahme: Option 0 = 2 Spieler, Option 1 = 3 Spieler
-
+	
 # Speichert den Highscore in einer Datei
 func save_highscore():
 	Globals.save_highscore()
