@@ -64,7 +64,7 @@ func _process(delta):
 					print("P1: Empfangene Nachricht: Y, Zielposition Y:", normalized_y, "Normalisierter Y Wert:", normalized_value)
 
 		# Aktualisiere Paddle-Position für X und Y
-		# Begrenzung der X- und Y-Position
+		# Begrenzung der X- und Y-Positiongit
 		# Aktualisiere Paddle-Position für X und Y mit Begrenzung
 		normalized_x = clamp(normalized_x, p_width/2, win_width - p_width)
 		normalized_y = clamp(normalized_y, win_height / 2 - p_height, win_height - p_height)
