@@ -52,6 +52,12 @@ func _physics_process(delta):
 				Globals.save_highscore()
 				$"../Hud/HighScore Score".text = str(Globals.highscore)
 
+		elif (collider == $"../Coin"):
+			score += 1
+			speed = speed
+			dir = dir
+			
+		
 		#if it hits a wall
 		else:
 			dir = dir.bounce(collision.get_normal())
