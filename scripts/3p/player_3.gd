@@ -27,13 +27,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_key_pressed(KEY_Z):
+	if Input.is_action_pressed("ui_up"):
 		position.y -= get_parent().get_parent().PADDLE_SPEED * delta
-	elif Input.is_key_pressed(KEY_H):
+	elif Input.is_action_pressed("ui_down"):
 		position.y += get_parent().get_parent().PADDLE_SPEED * delta
-	elif Input.is_key_pressed(KEY_G):
+	elif Input.is_action_pressed("ui_left"):
 		position.x -= get_parent().get_parent().PADDLE_SPEED * delta
-	elif Input.is_key_pressed(KEY_J):
+	elif Input.is_action_pressed("ui_right"):
 		position.x += get_parent().get_parent().PADDLE_SPEED * delta
 		
 	position.x = clamp(position.x, p_width/2, win_width - p_width/2)

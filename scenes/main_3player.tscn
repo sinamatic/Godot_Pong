@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cvmmaqp7m5xpq"]
+[gd_scene load_steps=20 format=3 uid="uid://cvmmaqp7m5xpq"]
 
 [ext_resource type="Texture2D" uid="uid://ckd7fut3ex0k0" path="res://assets/wood_background.jpg" id="1_2a7im"]
 [ext_resource type="Script" path="res://scripts/3p/main.gd" id="1_122ox"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://addons/godOSC/scripts/OSCServer2.gd" id="7_ys0fm"]
 [ext_resource type="Script" path="res://addons/godOSC/scripts/OSCReceiver2.gd" id="8_wowg8"]
 [ext_resource type="Script" path="res://scripts/3p/ball.gd" id="9_sg37l"]
+[ext_resource type="Script" path="res://scripts/3p/player_3.gd" id="10_i0qdn"]
 [ext_resource type="FontFile" uid="uid://cksbyujvq876h" path="res://assets/pixel_font.ttf" id="10_mwdd0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pi8kx"]
@@ -78,7 +79,7 @@ script = ExtResource("5_e43e5")
 shape = SubResource("RectangleShape2D_pi8kx")
 
 [node name="Player2" type="CharacterBody2D" parent="Players"]
-position = Vector2(1440, 960)
+position = Vector2(960, 960)
 collision_layer = 3
 script = ExtResource("6_xwia0")
 
@@ -98,6 +99,22 @@ script = ExtResource("7_ys0fm")
 
 [node name="OSCReceiver2" type="Node" parent="Players/Player2"]
 script = ExtResource("8_wowg8")
+
+[node name="Player3" type="CharacterBody2D" parent="Players"]
+position = Vector2(1440, 960)
+collision_layer = 3
+script = ExtResource("10_i0qdn")
+
+[node name="ColorRect" type="ColorRect" parent="Players/Player3"]
+offset_left = -75.0
+offset_top = -16.0
+offset_right = 75.0
+offset_bottom = 16.0
+color = Color(0.682353, 0.631373, 0.572549, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Players/Player3"]
+shape = SubResource("RectangleShape2D_cusb7")
 
 [node name="Ball" type="CharacterBody2D" parent="."]
 top_level = true
