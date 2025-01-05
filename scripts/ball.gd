@@ -20,8 +20,8 @@ func new_ball():
 	$"../Hud/PlayerScore".text = str(score)
 	$"../Hud/HighScore".text = str(Globals.highscore)
 	#randomize start position and direction
-	position.x = win_size.x / 2
-	position.y = randi_range(200, win_size.y - 200)
+	# position.x = win_size.x / 2
+	# position.y = randi_range(200, win_size.y - 200)
 	speed = START_SPEED
 	dir = random_direction()
 
