@@ -17,6 +17,14 @@ func _ready():
 func save_highscore():
 	Globals.save_highscore()
 
+func save_time():
+	Globals.save_time()
+
+func save_points():
+	Globals.save_points()
+	
+func save_lostGames():
+	Globals.save_lostGames()
 # Speichert die Spieleranzahl in einer Datei
 func save_player_count(player_count: int):
 	var file := FileAccess.open(PLAYER_COUNT_FILE, FileAccess.WRITE)
