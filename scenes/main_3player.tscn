@@ -1,49 +1,47 @@
-[gd_scene load_steps=19 format=3 uid="uid://y8vtislkcgb2"]
+[gd_scene load_steps=19 format=3 uid="uid://cvmmaqp7m5xpq"]
 
-[ext_resource type="Script" path="res://scripts/2p/main.gd" id="1_aecwo"]
-[ext_resource type="Script" path="res://scripts/2p/player_1.gd" id="2_dsswu"]
-[ext_resource type="Texture2D" uid="uid://ckd7fut3ex0k0" path="res://assets/wood_background.jpg" id="2_mbyc0"]
-[ext_resource type="Script" path="res://addons/godOSC/scripts/OSCReceiver.gd" id="3_77mj2"]
-[ext_resource type="Script" path="res://addons/godOSC/scripts/OSCServer.gd" id="4_p02fl"]
-[ext_resource type="Script" path="res://addons/godOSC/scripts/OSCClient.gd" id="5_r26xi"]
-[ext_resource type="Script" path="res://scripts/2p/player_2.gd" id="6_mrxdf"]
-[ext_resource type="Script" path="res://addons/godOSC/scripts/OSCServer2.gd" id="7_ii8lt"]
-[ext_resource type="Script" path="res://addons/godOSC/scripts/OSCReceiver2.gd" id="8_jqola"]
-[ext_resource type="Script" path="res://scripts/2p/ball.gd" id="9_ifcwb"]
-[ext_resource type="FontFile" uid="uid://cksbyujvq876h" path="res://assets/pixel_font.ttf" id="10_1tfm3"]
+[ext_resource type="Texture2D" uid="uid://ckd7fut3ex0k0" path="res://assets/wood_background.jpg" id="1_2a7im"]
+[ext_resource type="Script" path="res://scripts/3p/main.gd" id="1_122ox"]
+[ext_resource type="Script" path="res://scripts/3p/player_1.gd" id="2_voqax"]
+[ext_resource type="Script" path="res://addons/godOSC/scripts/OSCReceiver.gd" id="3_00clg"]
+[ext_resource type="Script" path="res://addons/godOSC/scripts/OSCServer.gd" id="4_h3pav"]
+[ext_resource type="Script" path="res://addons/godOSC/scripts/OSCClient.gd" id="5_e43e5"]
+[ext_resource type="Script" path="res://scripts/3p/player_2.gd" id="6_xwia0"]
+[ext_resource type="Script" path="res://addons/godOSC/scripts/OSCServer2.gd" id="7_ys0fm"]
+[ext_resource type="Script" path="res://addons/godOSC/scripts/OSCReceiver2.gd" id="8_wowg8"]
+[ext_resource type="Script" path="res://scripts/3p/ball.gd" id="9_sg37l"]
+[ext_resource type="FontFile" uid="uid://cksbyujvq876h" path="res://assets/pixel_font.ttf" id="10_mwdd0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_02mqg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pi8kx"]
 size = Vector2(150, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0n2r"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cusb7"]
 size = Vector2(150, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w32bf"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijcwv"]
 size = Vector2(10, 10)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8hgk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3la0s"]
 size = Vector2(1920, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sp7ob"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ex0l4"]
 size = Vector2(64, 1080)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h58vm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4e2h6"]
 size = Vector2(350, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmkg7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcjdd"]
 size = Vector2(34.7628, 14.8851)
 
-[node name="main" type="Sprite2D"]
-texture_filter = 1
-centered = false
-script = ExtResource("1_aecwo")
+[node name="main_3player" type="Sprite2D"]
+script = ExtResource("1_122ox")
 
 [node name="Playground" type="Node" parent="."]
 
 [node name="WoodBackground" type="Sprite2D" parent="Playground"]
 position = Vector2(960, 540)
 scale = Vector2(1, 1.05469)
-texture = ExtResource("2_mbyc0")
+texture = ExtResource("1_2a7im")
 
 [node name="PlayerBorder" type="ColorRect" parent="Playground"]
 anchors_preset = -1
@@ -57,7 +55,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Player1" type="CharacterBody2D" parent="Players"]
 position = Vector2(480, 960)
 collision_layer = 3
-script = ExtResource("2_dsswu")
+script = ExtResource("2_voqax")
 
 [node name="ColorRect" type="ColorRect" parent="Players/Player1"]
 offset_left = -75.0
@@ -68,21 +66,21 @@ color = Color(0.678431, 0.568627, 0.85098, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="OSCReceiver" type="Node" parent="Players/Player1"]
-script = ExtResource("3_77mj2")
+script = ExtResource("3_00clg")
 
 [node name="OSCServer" type="Node" parent="Players/Player1"]
-script = ExtResource("4_p02fl")
+script = ExtResource("4_h3pav")
 
 [node name="OSCClient" type="Node" parent="Players/Player1"]
-script = ExtResource("5_r26xi")
+script = ExtResource("5_e43e5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Players/Player1"]
-shape = SubResource("RectangleShape2D_02mqg")
+shape = SubResource("RectangleShape2D_pi8kx")
 
 [node name="Player2" type="CharacterBody2D" parent="Players"]
 position = Vector2(1440, 960)
 collision_layer = 3
-script = ExtResource("6_mrxdf")
+script = ExtResource("6_xwia0")
 
 [node name="ColorRect" type="ColorRect" parent="Players/Player2"]
 offset_left = -75.0
@@ -93,19 +91,19 @@ color = Color(0.682353, 0.631373, 0.572549, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Players/Player2"]
-shape = SubResource("RectangleShape2D_s0n2r")
+shape = SubResource("RectangleShape2D_cusb7")
 
 [node name="OSCServer2" type="Node" parent="Players/Player2"]
-script = ExtResource("7_ii8lt")
+script = ExtResource("7_ys0fm")
 
 [node name="OSCReceiver2" type="Node" parent="Players/Player2"]
-script = ExtResource("8_jqola")
+script = ExtResource("8_wowg8")
 
 [node name="Ball" type="CharacterBody2D" parent="."]
 top_level = true
 position = Vector2(960, 540)
 collision_mask = 3
-script = ExtResource("9_ifcwb")
+script = ExtResource("9_sg37l")
 
 [node name="ColorRect" type="ColorRect" parent="Ball"]
 offset_left = -5.0
@@ -117,22 +115,22 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-shape = SubResource("RectangleShape2D_w32bf")
+shape = SubResource("RectangleShape2D_ijcwv")
 
 [node name="Borders" type="StaticBody2D" parent="."]
 collision_layer = 2
 
 [node name="Top" type="CollisionShape2D" parent="Borders"]
 position = Vector2(960, -32)
-shape = SubResource("RectangleShape2D_h8hgk")
+shape = SubResource("RectangleShape2D_3la0s")
 
 [node name="Left" type="CollisionShape2D" parent="Borders"]
 position = Vector2(-32, 540)
-shape = SubResource("RectangleShape2D_sp7ob")
+shape = SubResource("RectangleShape2D_ex0l4")
 
 [node name="Right" type="CollisionShape2D" parent="Borders"]
 position = Vector2(1952, 540)
-shape = SubResource("RectangleShape2D_sp7ob")
+shape = SubResource("RectangleShape2D_ex0l4")
 
 [node name="TopRight" type="CharacterBody2D" parent="Borders"]
 top_level = true
@@ -148,7 +146,7 @@ offset_bottom = 16.0
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/TopRight"]
-shape = SubResource("RectangleShape2D_h58vm")
+shape = SubResource("RectangleShape2D_4e2h6")
 
 [node name="TopLeft" type="CharacterBody2D" parent="Borders"]
 top_level = true
@@ -164,7 +162,7 @@ offset_bottom = 16.0
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/TopLeft"]
-shape = SubResource("RectangleShape2D_h58vm")
+shape = SubResource("RectangleShape2D_4e2h6")
 
 [node name="Deadzone" type="Area2D" parent="."]
 
@@ -172,7 +170,7 @@ shape = SubResource("RectangleShape2D_h58vm")
 position = Vector2(960, 1112)
 rotation = 3.14159
 scale = Vector2(55.2314, 4.2996)
-shape = SubResource("RectangleShape2D_qmkg7")
+shape = SubResource("RectangleShape2D_dcjdd")
 
 [node name="Hud" type="CanvasLayer" parent="."]
 
@@ -184,7 +182,7 @@ anchor_right = 0.527083
 anchor_bottom = 0.1
 offset_top = 12.0
 offset_bottom = 12.0
-theme_override_fonts/font = ExtResource("10_1tfm3")
+theme_override_fonts/font = ExtResource("10_mwdd0")
 theme_override_font_sizes/font_size = 100
 text = "0
 "
@@ -203,7 +201,7 @@ offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.4)
-theme_override_fonts/font = ExtResource("10_1tfm3")
+theme_override_fonts/font = ExtResource("10_mwdd0")
 theme_override_font_sizes/font_size = 40
 text = "0
 "
@@ -216,7 +214,7 @@ offset_top = 194.0
 offset_right = 1126.0
 offset_bottom = 224.0
 theme_override_colors/font_color = Color(1, 1, 1, 0.433)
-theme_override_fonts/font = ExtResource("10_1tfm3")
+theme_override_fonts/font = ExtResource("10_mwdd0")
 theme_override_font_sizes/font_size = 20
 text = "Highscore"
 horizontal_alignment = 1
