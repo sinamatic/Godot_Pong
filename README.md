@@ -97,8 +97,8 @@ DONE - 2 Handys mit DataOSC für 2 Player verwenden und 2 Ports festlegen?
 
 Optional
 
-- [ ] Paddlefarben auswählen
-- [ ] Highscore liste erstellen und über button aufrufbar machen?
+- [x] Paddlefarben auswählen
+- [x] Highscore liste erstellen und über button aufrufbar machen?
 - [ ] Ggf. Schwierigkeit mit der Zeit erhöhen: Paddle wird zB Schmaler nach 2 min oder nach 20 scores?
   - Geschwindigkeit vom Ball schneller
   - Ballgröße verändern

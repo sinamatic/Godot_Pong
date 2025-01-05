@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bljyb4i1le8k7"]
+[gd_scene load_steps=7 format=3 uid="uid://bljyb4i1le8k7"]
 
 [ext_resource type="Script" path="res://scripts/2p/main_menu.gd" id="1_yq35c"]
 [ext_resource type="Texture2D" uid="uid://ckd7fut3ex0k0" path="res://assets/wood_background.jpg" id="2_qlg1g"]
@@ -11,6 +11,14 @@ border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
 border_color = Color(100, 100, 100, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86wvy"]
+bg_color = Color(0, 0, 0, 0.501961)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0, 0, 0, 0.501961)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37ll1"]
 bg_color = Color(0, 0, 0, 0.5)
@@ -93,6 +101,19 @@ theme_override_fonts/font = ExtResource("2_v2aic")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_m2g4q")
 text = "Game Start"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_v2aic")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_86wvy")
+theme_override_constants/modulate_arrow = 4
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "2 Player"
+popup/item_1/text = "3 Player"
+popup/item_1/id = 1
 
 [node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
