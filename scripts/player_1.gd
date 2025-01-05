@@ -34,7 +34,7 @@ func _process(delta):
 	elif Input.is_key_pressed(KEY_D):
 		position.x += get_parent().get_parent().PADDLE_SPEED * delta
 	
-	position.x = clamp(position.x, p_width/2, win_width)
+	position.x = clamp(position.x, p_width/2, win_width - p_width/2)
 	position.y = clamp(position.y, win_height / 2 - p_height, win_height - p_height)
 
 # Überprüfe alle eingehenden Nachrichten
@@ -66,7 +66,7 @@ func _process(delta):
 		# Aktualisiere Paddle-Position für X und Y
 		# Begrenzung der X- und Y-Positiongit
 		# Aktualisiere Paddle-Position für X und Y mit Begrenzung
-		normalized_x = clamp(normalized_x, p_width/2, win_width - p_width)
+		normalized_x = clamp(normalized_x, p_width/2, win_width - p_width/2)
 		normalized_y = clamp(normalized_y, win_height / 2 - p_height, win_height - p_height)
 
 		# Setze die geglättete Position

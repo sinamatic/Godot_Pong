@@ -47,14 +47,14 @@ dispatcher2.map("/data/motion/accelerometer/y", p2_accelerometer_handler_y)
 dispatcher2.map("/data/motion/accelerometer/x", p2_accelerometer_handler_x)
 
 # Server- und Client-Konfiguration für iPhone 1
-p1_ip = "192.168.178.85"
+p1_ip = "192.168.178.87"
 p1_port = 5005
 p1_godot_ip = "127.0.0.1"
 p1_godot_port = 4646
 p1_godot_client = udp_client.SimpleUDPClient(p1_godot_ip, p1_godot_port)
 
 # Server- und Client-Konfiguration für iPhone 2
-p2_ip = "192.168.178.85"
+p2_ip = "192.168.178.87"
 p2_port = 6006
 p2_godot_ip = "127.0.0.1"
 p2_godot_port = 4747  # Ändern Sie den Port, wenn nötig

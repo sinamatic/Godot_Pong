@@ -67,17 +67,40 @@ func random_direction():
 	return new_dir.normalized()
 
 
+# legacy-funktion: problem wenn ball seitlich ans paddle kommt
+#func new_direction(collider):
+	#var ball_y = position.y
+	#var pad_y = collider.position.y
+	#var dist = ball_y - pad_y
+	#var new_dir := Vector2()
+	#
+	##flip the horizontal direction
+	#if dir.x > 0:
+		#new_dir.x = 1
+	#else:
+		#new_dir.x = -1
+	## new_dir.y =  (dist / (collider.p_height / 2)) * MAX_Y_VECTOR
+	#new_dir.y =  (dist / (randf_range(0.75, 1.25) * collider.p_height / 2)) * MAX_Y_VECTOR
+	#return new_dir.normalized()
+
+
 func new_direction(collider):
 	var ball_y = position.y
+	var ball_x = position.x
 	var pad_y = collider.position.y
-	var dist = ball_y - pad_y
+	var pad_x = collider.position.x
+	var dist_y = ball_y - pad_y
+	var dist_x = ball_x - pad_x
 	var new_dir := Vector2()
 	
-	#flip the horizontal direction
-	if dir.x > 0:
-		new_dir.x = 1
+	# Prüfen, ob der Ball seitlich getroffen hat
+	if abs(dist_x) > collider.p_width / 2:
+		# Ball trifft die Seitenkante
+		new_dir.x = -dir.x  # Horizontalrichtung umkehren
+		new_dir.y = dir.y   # Vertikalrichtung bleibt gleich
 	else:
-		new_dir.x = -1
-	# new_dir.y =  (dist / (collider.p_height / 2)) * MAX_Y_VECTOR
-	new_dir.y =  (dist / (randf_range(0.75, 1.25) * collider.p_height / 2)) * MAX_Y_VECTOR
+		# Ball trifft die Ober- oder Unterseite
+		new_dir.x = dir.x  # Horizontalrichtung bleibt gleich
+		new_dir.y = (dist_y / (collider.p_height / 2)) * MAX_Y_VECTOR
+
 	return new_dir.normalized()
