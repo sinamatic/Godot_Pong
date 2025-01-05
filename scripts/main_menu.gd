@@ -1,23 +1,20 @@
 extends Control
 
+const SAVE_FILE_PATH = "user://highscore.save"
 
-# Called when the node enters the scene tree for the first time.
+# Wird aufgerufen, wenn die Szene betreten wird.
 func _ready():
+	# Highscore aus der Datei laden und in Globals speichern
+	Globals.highscore = Globals.load_highscore()
+	# Anzeige des geladenen Highscores
 	$Highscore_Score.text = str(Globals.highscore)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_game_start_pressed() -> void:
+	# Szenenwechsel, Highscore bleibt in Globals bestehen
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
-	# get_tree().change_scene_to_file("res://scenes/2_lvl.tscn")
-
-
 
 func _on_exit_pressed() -> void:
-	# geht noch nicht
+	# Highscore speichern beim Beenden des Spiels
+	Globals.save_highscore()
 	get_tree().quit()
-	

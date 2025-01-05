@@ -7,5 +7,7 @@ func _on_ball_timer_timeout():
 
 # Soll eig neues Spiel werden und Highscore speichern
 func _on_score_body_entered(body):
+
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	
 	$BallTimer.start()
