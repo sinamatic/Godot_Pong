@@ -14,12 +14,12 @@ func _ready():
 	# win_size = $"../Playground/Background".size
 	win_size = get_viewport_rect().size
 	$"../Hud/PlayerScore".text = str(score)
-	$"../Hud/HighScore".text = str(Globals.highscore)
+	$"../Hud/HighScore Score".text = str(Globals.highscore)
 
 func new_ball():
 	score = 0
 	$"../Hud/PlayerScore".text = str(score)
-	$"../Hud/HighScore".text = str(Globals.highscore)
+	$"../Hud/HighScore Score".text = str(Globals.highscore)
 	#randomize start position and direction
 	# position.x = win_size.x / 2
 	# position.y = randi_range(200, win_size.y - 200)
@@ -49,7 +49,8 @@ func _physics_process(delta):
 			
 			if (score > Globals.highscore):
 				Globals.highscore = score
-				$"../Hud/HighScore".text = str(Globals.highscore)
+				Globals.save_highscore()
+				$"../Hud/HighScore Score".text = str(Globals.highscore)
 
 		#if it hits a wall
 		else:
