@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://y8vtislkcgb2"]
+[gd_scene load_steps=18 format=3 uid="uid://y8vtislkcgb2"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_aecwo"]
 [ext_resource type="Script" path="res://scripts/player_1.gd" id="2_dsswu"]
@@ -12,8 +12,11 @@
 [ext_resource type="Script" path="res://scripts/ball.gd" id="9_ifcwb"]
 [ext_resource type="FontFile" uid="uid://cksbyujvq876h" path="res://assets/pixel_font.ttf" id="10_1tfm3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h58vm"]
-size = Vector2(128, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02mqg"]
+size = Vector2(150, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0n2r"]
+size = Vector2(150, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w32bf"]
 size = Vector2(10, 10)
@@ -23,6 +26,9 @@ size = Vector2(1920, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sp7ob"]
 size = Vector2(64, 1080)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h58vm"]
+size = Vector2(350, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmkg7"]
 size = Vector2(34.7628, 14.8851)
@@ -55,15 +61,12 @@ collision_layer = 3
 script = ExtResource("2_dsswu")
 
 [node name="ColorRect" type="ColorRect" parent="Players/Player1"]
-offset_left = -64.0
+offset_left = -75.0
 offset_top = -16.0
-offset_right = 64.0
+offset_right = 75.0
 offset_bottom = 16.0
 color = Color(1, 0, 1, 1)
 metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Players/Player1"]
-shape = SubResource("RectangleShape2D_h58vm")
 
 [node name="OSCReceiver" type="Node" parent="Players/Player1"]
 script = ExtResource("3_77mj2")
@@ -74,21 +77,24 @@ script = ExtResource("4_p02fl")
 [node name="OSCClient" type="Node" parent="Players/Player1"]
 script = ExtResource("5_r26xi")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Players/Player1"]
+shape = SubResource("RectangleShape2D_02mqg")
+
 [node name="Player2" type="CharacterBody2D" parent="Players"]
 position = Vector2(1440, 960)
 collision_layer = 3
 script = ExtResource("6_mrxdf")
 
 [node name="ColorRect" type="ColorRect" parent="Players/Player2"]
-offset_left = -64.0
+offset_left = -75.0
 offset_top = -16.0
-offset_right = 64.0
+offset_right = 75.0
 offset_bottom = 16.0
 color = Color(1, 1, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Players/Player2"]
-shape = SubResource("RectangleShape2D_h58vm")
+shape = SubResource("RectangleShape2D_s0n2r")
 
 [node name="OSCServer2" type="Node" parent="Players/Player2"]
 script = ExtResource("7_ii8lt")
@@ -128,6 +134,40 @@ shape = SubResource("RectangleShape2D_sp7ob")
 [node name="Right" type="CollisionShape2D" parent="Borders"]
 position = Vector2(1952, 540)
 shape = SubResource("RectangleShape2D_sp7ob")
+
+[node name="TopRight" type="CharacterBody2D" parent="Borders"]
+top_level = true
+position = Vector2(1808, 112)
+rotation = 0.785398
+collision_layer = 3
+
+[node name="ColorRect" type="ColorRect" parent="Borders/TopRight"]
+offset_left = -175.0
+offset_top = -16.0
+offset_right = 175.0
+offset_bottom = 16.0
+color = Color(0.827141, 0.978082, 0.958237, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/TopRight"]
+shape = SubResource("RectangleShape2D_h58vm")
+
+[node name="TopLeft" type="CharacterBody2D" parent="Borders"]
+top_level = true
+position = Vector2(112, 112)
+rotation = -0.785398
+collision_layer = 3
+
+[node name="ColorRect" type="ColorRect" parent="Borders/TopLeft"]
+offset_left = -175.0
+offset_top = -16.0
+offset_right = 175.0
+offset_bottom = 16.0
+color = Color(0.827141, 0.978082, 0.958237, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/TopLeft"]
+shape = SubResource("RectangleShape2D_h58vm")
 
 [node name="Deadzone" type="Area2D" parent="."]
 
