@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://ckd7fut3ex0k0" path="res://assets/wood_background.jpg" id="1_2a7im"]
 [ext_resource type="Script" path="res://scripts/3p/main.gd" id="1_122ox"]
-[ext_resource type="Script" path="res://scripts/3p/player_1.gd" id="2_voqax"]
 [ext_resource type="Script" path="res://addons/godOSC/scripts/OSCReceiver.gd" id="3_00clg"]
+[ext_resource type="Script" path="res://scripts/2p/player_1.gd" id="3_1mp3r"]
 [ext_resource type="Script" path="res://addons/godOSC/scripts/OSCServer.gd" id="4_h3pav"]
 [ext_resource type="Script" path="res://addons/godOSC/scripts/OSCClient.gd" id="5_e43e5"]
 [ext_resource type="Script" path="res://scripts/3p/player_2.gd" id="6_xwia0"]
@@ -58,14 +58,14 @@ metadata/_edit_use_anchors_ = true
 [node name="Player1" type="CharacterBody2D" parent="Players"]
 position = Vector2(480, 960)
 collision_layer = 3
-script = ExtResource("2_voqax")
+script = ExtResource("3_1mp3r")
 
 [node name="ColorRect" type="ColorRect" parent="Players/Player1"]
 offset_left = -75.0
 offset_top = -16.0
 offset_right = 75.0
 offset_bottom = 16.0
-color = Color(0.678431, 0.568627, 0.85098, 1)
+color = Color(0.781413, 0.459736, 1, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="OSCReceiver" type="Node" parent="Players/Player1"]
@@ -90,7 +90,7 @@ offset_left = -75.0
 offset_top = -16.0
 offset_right = 75.0
 offset_bottom = 16.0
-color = Color(0.682353, 0.631373, 0.572549, 1)
+color = Color(0.852069, 0.577305, 3.85046e-07, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Players/Player2"]
@@ -112,7 +112,7 @@ offset_left = -75.0
 offset_top = -16.0
 offset_right = 75.0
 offset_bottom = 16.0
-color = Color(0.401167, 0.709166, 0.627113, 1)
+color = Color(4.81307e-07, 0.758542, 0.485762, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Players/Player3"]

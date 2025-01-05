@@ -11,7 +11,7 @@ var paddle_position_x: float
 var paddle_position_y: float
 
 
-@onready var osc_receiver2: Node = $OSCReceiver2
+@onready var osc_receiver3: Node = $OSCReceiver3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,8 +40,8 @@ func _process(delta):
 	position.y = clamp(position.y, win_height / 2 - p_height, win_height - p_height)
 
 # Überprüfe alle eingehenden Nachrichten
-	if osc_receiver2 and osc_receiver2.has_method("get"):
-		var target_server = $OSCServer2
+	if osc_receiver3 and osc_receiver3.has_method("get"):
+		var target_server = $OSCServer3
 
 	# Initialisiere Variablen für X und Y
 		var normalized_x = position.x
@@ -58,12 +58,12 @@ func _process(delta):
 				if address.ends_with("/x"):
 					# Berechne Zielposition für X
 					normalized_x = win_width / 2.0 + normalized_value * (win_width / 2.0 - p_width / 2.0)
-					print("P2: Empfangene Nachricht: X, Zielposition X:", normalized_x, "Normalisierter X Wert:", normalized_value)
+					print("P3: Empfangene Nachricht: X, Zielposition X:", normalized_x, "Normalisierter X Wert:", normalized_value)
 
 				elif address.ends_with("/y"):
 					# Berechne Zielposition für Y
 					normalized_y = win_height / 2.0 + normalized_value * (win_height / 2.0 - p_height / 2.0)
-					print("P2: Empfangene Nachricht: Y, Zielposition Y:", normalized_y, "Normalisierter Y Wert:", normalized_value)
+					print("P3: Empfangene Nachricht: Y, Zielposition Y:", normalized_y, "Normalisierter Y Wert:", normalized_value)
 
 		# Aktualisiere Paddle-Position für X und Y
 		# Begrenzung der X- und Y-Position

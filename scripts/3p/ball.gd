@@ -33,7 +33,7 @@ func _physics_process(delta):
 	if collision:
 		collider = collision.get_collider()
 		#if ball hits paddle
-		if collider == $"../Players/Player1" or collider == $"../Players/Player2":			
+		if collider == $"../Players/Player1" or collider == $"../Players/Player2" or collider == $"../Players/Player3":			
 			
 			if (activescoring):
 				speed += ACCEL
