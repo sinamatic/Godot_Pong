@@ -3,7 +3,7 @@ extends CharacterBody2D
 var win_size : Vector2
 const START_SPEED : int = 500
 const ACCEL : int = 75
-var speed : int
+var speed : float
 var dir : Vector2
 const MAX_Y_VECTOR : float = 0.7
 var score = 0
@@ -36,7 +36,7 @@ func _physics_process(delta):
 		if collider == $"../Players/Player1" or collider == $"../Players/Player2":			
 			
 			if (activescoring):
-				speed += ACCEL
+				speed += ACCEL / (score / 1.5 + 1)
 				score += 1
 				
 			dir = new_direction(collider)
