@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://y8vtislkcgb2"]
+[gd_scene load_steps=19 format=3 uid="uid://y8vtislkcgb2"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_aecwo"]
 [ext_resource type="Script" path="res://scripts/player_1.gd" id="2_dsswu"]
@@ -41,8 +41,8 @@ script = ExtResource("1_aecwo")
 [node name="Playground" type="Node" parent="."]
 
 [node name="WoodBackground" type="Sprite2D" parent="Playground"]
-position = Vector2(960, 539.5)
-scale = Vector2(1, 1.05371)
+position = Vector2(960, 540)
+scale = Vector2(1, 1.05469)
 texture = ExtResource("2_mbyc0")
 
 [node name="PlayerBorder" type="ColorRect" parent="Playground"]
@@ -65,7 +65,7 @@ offset_left = -75.0
 offset_top = -16.0
 offset_right = 75.0
 offset_bottom = 16.0
-color = Color(1, 0, 1, 1)
+color = Color(0.678431, 0.568627, 0.85098, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="OSCReceiver" type="Node" parent="Players/Player1"]
@@ -90,7 +90,7 @@ offset_left = -75.0
 offset_top = -16.0
 offset_right = 75.0
 offset_bottom = 16.0
-color = Color(1, 1, 0, 1)
+color = Color(0.682353, 0.631373, 0.572549, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Players/Player2"]
@@ -146,7 +146,6 @@ offset_left = -175.0
 offset_top = -16.0
 offset_right = 175.0
 offset_bottom = 16.0
-color = Color(0.827141, 0.978082, 0.958237, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/TopRight"]
@@ -163,7 +162,6 @@ offset_left = -175.0
 offset_top = -16.0
 offset_right = 175.0
 offset_bottom = 16.0
-color = Color(0.827141, 0.978082, 0.958237, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/TopLeft"]
@@ -172,7 +170,7 @@ shape = SubResource("RectangleShape2D_h58vm")
 [node name="Deadzone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deadzone"]
-position = Vector2(960, 1111)
+position = Vector2(960, 1112)
 rotation = 3.14159
 scale = Vector2(55.2314, 4.2996)
 shape = SubResource("RectangleShape2D_qmkg7")
