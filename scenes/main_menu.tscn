@@ -1,13 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://bljyb4i1le8k7"]
+[gd_scene load_steps=6 format=3 uid="uid://bljyb4i1le8k7"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_yq35c"]
+[ext_resource type="Texture2D" uid="uid://ckd7fut3ex0k0" path="res://assets/wood_background.jpg" id="2_qlg1g"]
 [ext_resource type="FontFile" uid="uid://cksbyujvq876h" path="res://assets/pixel_font.ttf" id="2_v2aic"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2g4q"]
-bg_color = Color(0.626677, 0.00113242, 0.756439, 1)
+bg_color = Color(0, 0, 0, 0.5)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(100, 100, 100, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37ll1"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0, 0, 0.5)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -16,13 +22,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 1.01323)
 script = ExtResource("1_yq35c")
 
-[node name="Background" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0, 0, 0.223529, 1)
+[node name="WoodBackground" type="Sprite2D" parent="."]
+position = Vector2(960, 533.906)
+scale = Vector2(1, 1.03905)
+texture = ExtResource("2_qlg1g")
 
 [node name="Headline" type="Label" parent="."]
 layout_mode = 1
@@ -30,12 +36,13 @@ anchors_preset = -1
 anchor_top = 0.118519
 anchor_right = 1.0
 anchor_bottom = 0.164815
+offset_top = -45.0972
+offset_bottom = -45.0968
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_v2aic")
-theme_override_font_sizes/font_size = 50
-text = "Game Name"
+theme_override_font_sizes/font_size = 100
+text = "SQUONG"
 horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Highscore_Headline" type="Label" parent="."]
 layout_mode = 1
@@ -43,12 +50,13 @@ anchors_preset = -1
 anchor_top = 0.777778
 anchor_right = 1.0
 anchor_bottom = 0.824074
+offset_top = -45.0972
+offset_bottom = -45.0968
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_v2aic")
 theme_override_font_sizes/font_size = 50
 text = "Highscore"
 horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Highscore_Score" type="Label" parent="."]
 layout_mode = 1
@@ -56,12 +64,13 @@ anchors_preset = -1
 anchor_top = 0.866667
 anchor_right = 1.0
 anchor_bottom = 0.912963
+offset_top = -45.0972
+offset_bottom = -45.0969
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_v2aic")
 theme_override_font_sizes/font_size = 50
 text = "0"
 horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -71,9 +80,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -296.0
-offset_top = -172.0
+offset_top = -217.097
 offset_right = 296.0
-offset_bottom = 172.0
+offset_bottom = 126.903
 grow_horizontal = 2
 grow_vertical = 2
 
