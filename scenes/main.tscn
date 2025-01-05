@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://y8vtislkcgb2"]
+[gd_scene load_steps=17 format=3 uid="uid://y8vtislkcgb2"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_aecwo"]
 [ext_resource type="Script" path="res://scripts/player_1.gd" id="2_dsswu"]
+[ext_resource type="Texture2D" uid="uid://ckd7fut3ex0k0" path="res://assets/wood_background.jpg" id="2_mbyc0"]
 [ext_resource type="Script" path="res://addons/godOSC/scripts/OSCReceiver.gd" id="3_77mj2"]
 [ext_resource type="Script" path="res://addons/godOSC/scripts/OSCServer.gd" id="4_p02fl"]
 [ext_resource type="Script" path="res://addons/godOSC/scripts/OSCClient.gd" id="5_r26xi"]
@@ -33,16 +34,15 @@ script = ExtResource("1_aecwo")
 
 [node name="Playground" type="Node" parent="."]
 
-[node name="Background" type="ColorRect" parent="Playground"]
-offset_right = 1920.0
-offset_bottom = 1024.0
-color = Color(0, 0, 0.215686, 1)
-metadata/_edit_use_anchors_ = true
+[node name="WoodBackground" type="Sprite2D" parent="Playground"]
+position = Vector2(960, 512)
+texture = ExtResource("2_mbyc0")
 
 [node name="PlayerBorder" type="ColorRect" parent="Playground"]
-offset_top = 453.0
-offset_right = 1920.0
-offset_bottom = 463.0
+visible = false
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.428704
 color = Color(0.552956, 0.552956, 0.552956, 1)
 metadata/_edit_use_anchors_ = true
 
@@ -102,11 +102,6 @@ collision_mask = 3
 script = ExtResource("9_ifcwb")
 
 [node name="ColorRect" type="ColorRect" parent="Ball"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -5.0
 offset_top = -5.0
 offset_right = 5.0
@@ -144,30 +139,50 @@ shape = SubResource("RectangleShape2D_qmkg7")
 [node name="Hud" type="CanvasLayer" parent="."]
 
 [node name="PlayerScore" type="Label" parent="Hud"]
-offset_left = 912.0
-offset_top = 8.0
-offset_right = 1012.0
-offset_bottom = 108.0
+anchors_preset = -1
+anchor_left = 0.475
+anchor_top = 0.00740741
+anchor_right = 0.527083
+anchor_bottom = 0.1
+offset_top = 12.0
+offset_bottom = 12.0
 theme_override_fonts/font = ExtResource("10_1tfm3")
 theme_override_font_sizes/font_size = 100
 text = "0
 "
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="HighScore" type="Label" parent="Hud"]
-offset_left = 1872.0
-offset_right = 1922.0
-offset_bottom = 50.0
-theme_override_colors/font_color = Color(0, 1, 0, 1)
+anchors_preset = -1
+anchor_left = 0.486979
+anchor_top = 0.172222
+anchor_right = 0.513021
+anchor_bottom = 0.218519
+offset_top = 28.0
+offset_right = 6.10352e-05
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.4)
 theme_override_fonts/font = ExtResource("10_1tfm3")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = "0
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Hud"]
+offset_left = 796.0
+offset_top = 182.0
+offset_right = 1126.0
+offset_bottom = 212.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.433)
+theme_override_fonts/font = ExtResource("10_1tfm3")
+theme_override_font_sizes/font_size = 20
+text = "Highscore"
+horizontal_alignment = 1
 
 [node name="BallTimer" type="Timer" parent="."]
 one_shot = true

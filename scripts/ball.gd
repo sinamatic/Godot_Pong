@@ -11,7 +11,8 @@ var activescoring = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	win_size = $"../Playground/Background".size
+	# win_size = $"../Playground/Background".size
+	win_size = get_viewport_rect().size
 	$"../Hud/PlayerScore".text = str(score)
 	$"../Hud/HighScore".text = str(Globals.highscore)
 

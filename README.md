@@ -91,7 +91,7 @@ DONE - 2 Handys mit DataOSC für 2 Player verwenden und 2 Ports festlegen?
 - [x] Highscoreliste erstellen und neuen Highscore eintragen wenn Spiel vorbei ist
 - [x] Fehler beheben, dass die ganze zeit hits gesammelt werden wenn paddle den ball anschiebt
 - [ ] Gamename überlegen und kurzbeschreibung erstellen
-- [ ] Geschwindigkeit über die Zeit anpassen
+- [x] Geschwindigkeit über die Zeit anpassen
 - [ ] Geschwindigkeit im Spiel anzeigen lassen
 - [ ] Vollbild anpassen bei jedem Bildschirm
 

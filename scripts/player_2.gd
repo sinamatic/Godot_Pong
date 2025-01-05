@@ -15,8 +15,10 @@ var paddle_position_y: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	win_height = $"../../Playground/Background".size.y
-	win_width = $"../../Playground/Background".size.x
+	win_height = get_viewport_rect().size.y
+	win_width = get_viewport_rect().size.x
+	# win_height = $"../../Playground/Background".size.y
+	# win_width = $"../../Playground/Background".size.x
 	p_height = $ColorRect.get_size().y
 	p_width = $ColorRect.get_size().x
 	
