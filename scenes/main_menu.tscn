@@ -58,8 +58,8 @@ anchors_preset = -1
 anchor_top = 0.777778
 anchor_right = 1.0
 anchor_bottom = 0.824074
-offset_top = -45.0972
-offset_bottom = -45.0968
+offset_top = -128.415
+offset_bottom = -128.414
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_v2aic")
 theme_override_font_sizes/font_size = 50
@@ -72,27 +72,118 @@ anchors_preset = -1
 anchor_top = 0.866667
 anchor_right = 1.0
 anchor_bottom = 0.912963
-offset_top = -45.0972
-offset_bottom = -45.0969
+offset_top = -128.415
+offset_bottom = -128.414
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_v2aic")
 theme_override_font_sizes/font_size = 50
 text = "0"
 horizontal_alignment = 1
 
+[node name="Points_Headline" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.777778
+anchor_right = 1.0
+anchor_bottom = 0.824074
+offset_top = 77.9998
+offset_right = -1280.0
+offset_bottom = 78.0001
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_v2aic")
+theme_override_font_sizes/font_size = 30
+text = "Points earned"
+horizontal_alignment = 1
+
+[node name="Points_Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.866667
+anchor_right = 1.0
+anchor_bottom = 0.912963
+offset_top = 32.9997
+offset_right = -1280.0
+offset_bottom = 33.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_v2aic")
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+
+[node name="Time_Headline" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.777778
+anchor_right = 1.0
+anchor_bottom = 0.824074
+offset_left = 643.0
+offset_top = 77.9998
+offset_right = -637.0
+offset_bottom = 78.0001
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_v2aic")
+theme_override_font_sizes/font_size = 30
+text = "Time played"
+horizontal_alignment = 1
+
+[node name="Time_time" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.866667
+anchor_right = 1.0
+anchor_bottom = 0.912963
+offset_left = 643.0
+offset_top = 32.9997
+offset_right = -637.0
+offset_bottom = 33.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_v2aic")
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+
+[node name="Lost_Headline" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.777778
+anchor_right = 1.0
+anchor_bottom = 0.824074
+offset_left = 1277.0
+offset_top = 77.9998
+offset_right = -3.0
+offset_bottom = 78.0001
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_v2aic")
+theme_override_font_sizes/font_size = 30
+text = "Games lost"
+horizontal_alignment = 1
+
+[node name="Lost_Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.866667
+anchor_right = 1.0
+anchor_bottom = 0.912963
+offset_left = 1277.0
+offset_top = 32.9997
+offset_right = -3.0
+offset_bottom = 33.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_v2aic")
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -296.0
-offset_top = -217.097
-offset_right = 296.0
-offset_bottom = 126.903
+anchors_preset = -1
+anchor_left = 0.345833
+anchor_top = 0.258776
+anchor_right = 0.654167
+anchor_bottom = 0.577294
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="GameStart" type="Button" parent="VBoxContainer"]
 layout_mode = 2
