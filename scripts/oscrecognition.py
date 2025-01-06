@@ -9,6 +9,10 @@ import threading
 #                   #
 #####################
 
+import sys
+
+print("Python-Skript gestartet")
+
 
 # Handler für iPhone 1
 def p1_accelerometer_handler_y(address, *args):
@@ -81,11 +85,11 @@ dispatcher1.map("/data/motion/accelerometer/y", p1_accelerometer_handler_y)
 dispatcher1.map("/data/motion/accelerometer/x", p1_accelerometer_handler_x)
 
 # Server- und Client-Konfiguration für iPhone 1
-p1_ip = "192.168.178.85"
+ip = "192.168.178.85"
 p1_port = 5005
-p1_godot_ip = "127.0.0.1"
+godot_ip = "127.0.0.1"
 p1_godot_port = 4646
-p1_godot_client = udp_client.SimpleUDPClient(p1_godot_ip, p1_godot_port)
+p1_godot_client = udp_client.SimpleUDPClient(godot_ip, p1_godot_port)
 
 
 #####################
@@ -101,11 +105,9 @@ dispatcher2.map("/data/motion/accelerometer/x", p2_accelerometer_handler_x)
 
 
 # Server- und Client-Konfiguration für iPhone 2
-p2_ip = "192.168.178.85"
 p2_port = 6006
-p2_godot_ip = "127.0.0.1"
 p2_godot_port = 4747  # Ändern Sie den Port, wenn nötig
-p2_godot_client = udp_client.SimpleUDPClient(p2_godot_ip, p2_godot_port)
+p2_godot_client = udp_client.SimpleUDPClient(godot_ip, p2_godot_port)
 
 
 #####################
@@ -122,11 +124,9 @@ dispatcher3.map("/data/motion/accelerometer/x", p3_accelerometer_handler_x)
 
 
 # Server- und Client-Konfiguration für iPhone 2
-p3_ip = "192.168.178.85"
 p3_port = 7007
-p3_godot_ip = "127.0.0.1"
 p3_godot_port = 4848  # Ändern Sie den Port, wenn nötig
-p3_godot_client = udp_client.SimpleUDPClient(p3_godot_ip, p3_godot_port)
+p3_godot_client = udp_client.SimpleUDPClient(godot_ip, p3_godot_port)
 
 
 # Funktion zum Starten eines Servers in einem separaten Thread
@@ -137,9 +137,9 @@ def start_server(ip, port, dispatcher):
 
 
 # Server in separaten Threads starten
-thread1 = threading.Thread(target=start_server, args=(p1_ip, p1_port, dispatcher1))
-thread2 = threading.Thread(target=start_server, args=(p2_ip, p2_port, dispatcher2))
-thread3 = threading.Thread(target=start_server, args=(p3_ip, p3_port, dispatcher3))
+thread1 = threading.Thread(target=start_server, args=(ip, p1_port, dispatcher1))
+thread2 = threading.Thread(target=start_server, args=(ip, p2_port, dispatcher2))
+thread3 = threading.Thread(target=start_server, args=(ip, p3_port, dispatcher3))
 
 
 thread1.start()
@@ -150,3 +150,5 @@ thread3.start()
 thread1.join()
 thread2.join()
 thread3.join()
+
+print("Python-Skript erfolgreich abgeschlossen")
