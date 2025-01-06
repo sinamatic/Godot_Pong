@@ -1,104 +1,92 @@
-# Pong in Godot mit cooler Steuerung
+# SQUONG
 
-Ziel ist es, dass man das SPiel Pong entweder alleine oder zu zweit gegeneinander lustig spielen kann.
+SQUONG ist eine aufregende Abwandlung des klassischen Spiels Pong! In diesem kooperativen Multiplayer-Spiel (2-3 Spieler) ist Teamwork gefragt: Ziel ist es, den Ball mit euren Paddles so oft wie möglich abprallen zu lassen und gemeinsam den Highscore zu knacken. Es gibt keinen Konkurrenzkampf – nur einen gemeinsamen Punkte-Counter.
 
-Aktuell kann man das linke Paddle mit W und A hoch und runter bewegen, für das Rechte Paddle arbeite ich grad an was coolerem. Ich hab erst ein Pythonskript für die Spracherkennung gemacht, das findest du im Repo bei scripts/voicerecognition und kannst das direkt ausführen.
+## 🕹️ Spielmodi
 
-Die Sprachereknnung war aber bisschen scheiße, weil einzelne Wörter zu kurz sind, also „up“ erkennt er gar nicht, „hoch“ nur manchmal weil das ch scheiße ist, Test und Hallo geht, aber wird häufig auch zu „test test“ oder „hallo hallo“. Plan war: Python nimmt übers Mikro die Sprache auf und schreibt es in eine Textdatei voice_input.txt, Godot liest die Textdatei und das Paddle bewegt sich.
-Aber weil das mit Python schon nicht richtig ging hab ichs über den Haufen geworfen.
+### Tastensteuerung (Fallback-Option)
 
-## Dependencies
+- **2 Spieler:**
+  - Linkes Paddle: `W`, `A`, `S`, `D`
+  - Rechtes Paddle: Pfeiltasten
+- **3 Spieler:**
+  - Linkes Paddle: `W`, `A`, `S`, `D`
+  - Rechtes Paddle: Pfeiltasten
+  - Mittleres Paddle: `Z`, `G`, `H`, `J`
 
-```
-brew install portaudio
-```
+### Handy als Controller (Empfohlene Option)
 
-- pyaudio
-- SpeechRecognition
+Spieler steuern ihre Paddles durch das Neigen ihres Handys. **Aktuell nur mit iPhones kompatibel.**
 
-Backup vom Voicerecognitioncode bei Player2 in Godot
+---
 
-```godot
-# Player2 Voicecontrol
+## 📱 Einrichtung für Handy-Steuerung
 
-extends StaticBody2D
+### Voraussetzungen
 
-var win_height : int
-var p_height : int
-var speed_multiplier : float = 1.0
-var voice_command : String = ""
-var volume : float = 0.0
+1. Lade die App **[Data OSC](https://apps.apple.com)** für dein iPhone aus dem App Store herunter (kostenlos).
+2. Finde die IP-Adresse deines Computers heraus:
+   - Einstellungen > WLAN > Tippe auf dein verbundenes Netzwerk > IP-Adresse
 
-# Set up a FileAccess object to read input from the Python script
-var voice_file_path : String = "res://scripts/voice_input.txt"
+### Konfiguration
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	win_height = get_viewport_rect().size.y
-	p_height = $ColorRect.get_size().y
+1. Öffne die Data OSC-App und Aktiviere "OSC"
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	# Read the latest voice input from the file
-	if FileAccess.file_exists(voice_file_path):
-		var voice_file = FileAccess.open(voice_file_path, FileAccess.READ)
-		if voice_file:
-			var content = voice_file.get_as_text().strip_edges()
-			voice_file.close()
-			if content:
-				var parts = content.split(",")
-				if parts.size() >= 2:
-					voice_command = parts[0]
-					volume = float(parts[1])
+   - Gib die **IP-Adresse** deines Computers ein.
+   - Setze den **Port** entsprechend:
+     - Spieler 1: `5005`
+     - Spieler 2: `6006`
+     - Spieler 3: `7007`
+   - Aktiviere "Motion", drücke auf das Menü bei Motion und stelle sicher, dass accelerometer/x und accelerometer/y aktiviert sind,
 
-	# Adjust paddle speed based on volume
-	speed_multiplier = volume / 100.0 # Assuming volume is 0 to 100
+2. Starte das Python-Skript im Ordner `scripts/oscdetection`:
 
-	# Move paddle based on voice command
-	if voice_command == "up":
-		position.y -= get_parent().PADDLE_SPEED * speed_multiplier * delta
-	elif voice_command == "down":
-		position.y += get_parent().PADDLE_SPEED * speed_multiplier * delta
+   ```bash
+   python3 oscdetection.py
+   ```
 
-	# Limit paddle movement to window
-	position.y = clamp(position.y, p_height / 2, win_height - p_height / 2)
+3. Befolge die Anweisungen im Terminal und gib deine IP-Adresse ein. Überprüfe, ob in der Ausgabe Werte für p1, p2 und p3 angezeigt werden. Falls ja, funktioniert die Verbindung.
 
+![Terminal-Ausgabe nach Start des Pythonskripts](doku/Bildschirmfoto%202025-01-06%20um%2012.49.39.png)
+
+![DataOSC 1](doku/IMG_7964.PNG)
+![DataOSC 2](doku/IMG_7965.PNG)
+
+### Spielstart
+
+1. Starte das Godot-Spiel.
+2. Steuere dein Paddle mit deinem Handy!
+
+## 🚀 Installation
+
+Lade dieses Repository herunter:
 
 ```
+git clone git@github.com:sinamatic/Godot_Pong.git
+```
 
-- funktioniert nicht richtig, Wörter zu kurz
+- Stelle sicher, dass Python installiert ist (für die Handy-Controller-Integration):
+- Installiere ggf. die benötigten Python-Pakete:
 
-# OSC Steuerung
+```
+pip install python-osc
+```
 
-Neue Idee dann: DataOSC App am Handy und dann mit hoch bzw. runter kippen vom Handy das paddle steuern. In scripts/oscrecognition ist der Code, es werden auch Daten vom Handy und der App empfangen und ausgegeben, aber in Godot kommen die Daten irgendwie noch nicht an und ich weiß nicht warum
+- Starte das Spiel über Godot
 
-- Download dataOSC aus dem Appstore
-- Eigene ip adresse des Computers rausfinden
-- in DataOSC App die IP Adresse des Computers eingeben
-- im Pythonscript bei IP = "192.168.2.118" die eigene IP Adresse eingeben
+# ✨ Features
 
-# ToDo
+- Kooperatives Gameplay: Arbeitet zusammen und sammelt Punkte.
+- Multiplayer: Für 2-3 Spieler.
+- Einzigartiger Controller-Support: Nutze dein Handy als Paddle-Controller.
+- Flexible Steuerung: Alternativsteuerung über Tasten.
 
-DONE - Kommunikation zwischen Python und Godot oder die Daten von DataOSC direkt in Godot?
-DONE - 2 Handys mit DataOSC für 2 Player verwenden und 2 Ports festlegen?
-2025-01-03
+# 💡 Feedback & Beiträge
 
-- [x] Startbildschirm erstellen
-- [x] Normalisierung in Skripten rausnehmen und Y Position begrenzen
-- [x] Keyboardsteuerung optimieren, sodass Paddle nicht mehr ausm Spiel raus kann
-- [x] Design überarbeiten
-- [x] Score überarbeiten, wenn Ball auf Paddle trifft solls punkte geben, wenn kein Paddle trifft, dann GameOver
-- [x] Highscoreliste erstellen und neuen Highscore eintragen wenn Spiel vorbei ist
-- [x] Fehler beheben, dass die ganze zeit hits gesammelt werden wenn paddle den ball anschiebt
-- [x] Gamename überlegen und kurzbeschreibung erstellen
-- [x] Geschwindigkeit über die Zeit anpassen
-- [x] Geschwindigkeit im Spiel anzeigen lassen unnötig
-- [x] Vollbild anpassen bei jedem Bildschirm
+Du hast Feedback, Bugs gefunden oder Ideen für Verbesserungen? Erstelle ein Issue oder reiche einen Pull Request ein. Wir freuen uns auf deine Beiträge!
 
-Optional
+# ToDos
 
-- [x] Paddlefarben auswählen
-- [x] Highscore liste erstellen und über button aufrufbar machen?
 - [ ] Ggf. Schwierigkeit mit der Zeit erhöhen: Paddle wird zB Schmaler nach 2 min oder nach 20 scores?
   - Geschwindigkeit vom Ball schneller
   - Ballgröße verändern
