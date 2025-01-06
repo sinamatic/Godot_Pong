@@ -104,7 +104,7 @@ script = ExtResource("8_jqola")
 [node name="Ball" type="CharacterBody2D" parent="."]
 top_level = true
 position = Vector2(960, 540)
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("9_ifcwb")
 
 [node name="ColorRect" type="ColorRect" parent="Ball"]

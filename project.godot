@@ -33,4 +33,5 @@ enabled=PackedStringArray("res://addons/godOSC/plugin.cfg")
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 2d/size/resizable=false
