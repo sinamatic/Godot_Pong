@@ -48,7 +48,7 @@ Spieler steuern ihre Paddles durch das Neigen ihres Handys. **Aktuell nur mit iP
 3. Befolge die Anweisungen im Terminal und gib deine IP-Adresse ein. Überprüfe, ob in der Ausgabe Werte für p1, p2 und p3 angezeigt werden. Falls ja, funktioniert die Verbindung.
 
 ![Terminal-Ausgabe nach Start des Pythonskripts](doku/Bildschirmfoto%202025-01-06%20um%2012.49.39.png)
-<img src="doku/IMG_7964.png" alt="DataOSC 1" width="400px"> <img src="doku/IMG_7965.png" alt="DataOSC 2" width="400px">
+<img src="/doku/IMG_7964.png" alt="DataOSC 1" width="400px"> <img src="/doku/IMG_7965.png" alt="DataOSC 2" width="400px">
 
 ### Spielstart
 
