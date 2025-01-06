@@ -49,8 +49,10 @@ Spieler steuern ihre Paddles durch das Neigen ihres Handys. **Aktuell nur mit iP
 
 ![Terminal-Ausgabe nach Start des Pythonskripts](doku/Bildschirmfoto%202025-01-06%20um%2012.49.39.png)
 
-![DataOSC 1](doku/IMG_7964.PNG)
-![DataOSC 2](doku/IMG_7965.PNG)
+<p align="center">
+  <img src="doku/IMG_7964.PNG" alt="DataOSC 1" width="25%">
+  <img src="doku/IMG_7965.PNG" alt="DataOSC 2" width="25%">
+</p>
 
 ### Spielstart
 
