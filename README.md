@@ -2,6 +2,8 @@
 
 SQUONG ist eine aufregende Abwandlung des klassischen Spiels Pong! In diesem kooperativen Multiplayer-Spiel (2-3 Spieler) ist Teamwork gefragt: Ziel ist es, den Ball mit euren Paddles so oft wie möglich abprallen zu lassen und gemeinsam den Highscore zu knacken. Es gibt keinen Konkurrenzkampf – nur einen gemeinsamen Punkte-Counter.
 
+Hier gehts zur abgespeckten Onlineversion: https://ray97kab.itch.io/squong
+
 ## 🕹️ Spielmodi
 
 ### Tastensteuerung (Fallback-Option)

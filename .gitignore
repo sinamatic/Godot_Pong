@@ -17,3 +17,6 @@ mono_crash.*.json
 # python
 scripts/__pycache__/
 scripts/.venv/
+
+# release
+release/
