@@ -1,9 +1,12 @@
 extends Node
 
 var highscore: int = 0
-var timeplayed: int = 0
+var time_played: int = 0
 var points_saved: int = 0
 var lostGames: int = 0
+var timer_running: bool = false
+var elapsed_time: int = 0
+
 
 var speedmultiplier: float
 
@@ -39,23 +42,26 @@ func load_highscore() -> int:
 func save_time():
 	var file := FileAccess.open(SAVE_FILE_PATH_TIME, FileAccess.WRITE)
 	if file:
-		file.store_string(str(timeplayed))
+		file.store_string(str(time_played))
 		file.close()
-		print("Spielzeit gespeichert: ", timeplayed)
+		print("Spielzeit gespeichert: ", time_played, "Sekunden")
 	else:
 		print("Fehler beim Speichern der Spielzeit!")
 
-func load_time():
+func load_time() -> int:
 	var file := FileAccess.open(SAVE_FILE_PATH_TIME, FileAccess.READ)
 	if file:
 		var content := file.get_as_text()
-		timeplayed = int(content)
-		print("Spielzeit geladen: ", timeplayed)
+		time_played = int(content)
+		print("Spielzeit geladen: ", time_played, "Sekunden")
 		file.close()
-		return timeplayed
+		return time_played
 	else:
-		print("Keine Spielzeit-Datei gefunden. Standardwert: 0.")
-		return 0
+		print("Keine Spielzeit-Datei gefunden. Erstelle neue Datei mit Standardwert: 0.")
+		time_played = 0
+		save_time()
+		return time_played
+
 
 # Speichert die Punkte in einer Datei
 func save_points():
