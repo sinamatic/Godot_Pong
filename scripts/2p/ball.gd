@@ -3,7 +3,7 @@ extends CharacterBody2D
 var win_size : Vector2
 const START_SPEED : int = 500
 const ACCEL : int = 75
-var speed : float
+var speed : int
 var dir : Vector2
 const MAX_Y_VECTOR : float = 0.7
 var score = 0
@@ -15,13 +15,11 @@ func _ready():
 	win_size = get_viewport_rect().size
 	$"../Hud/PlayerScore".text = str(score)
 	$"../Hud/HighScore Score".text = str(Globals.highscore)
-	$"../Hud/Points_Score".text = str(Globals.points_saved)
 
 func new_ball():
 	score = 0
 	$"../Hud/PlayerScore".text = str(score)
 	$"../Hud/HighScore Score".text = str(Globals.highscore)
-	$"../Hud/Points_Score".text = str(Globals.points_saved)
 	#randomize start position and direction
 	# position.x = win_size.x / 2
 	# position.y = randi_range(200, win_size.y - 200)
@@ -32,18 +30,14 @@ func new_ball():
 func _physics_process(delta):
 	var collision = move_and_collide(dir * speed * delta)
 	var collider
-	
 	if collision:
 		collider = collision.get_collider()
 		#if ball hits paddle
 		if collider == $"../Players/Player1" or collider == $"../Players/Player2":			
 			
 			if (activescoring):
-				speed += ACCEL / (score / 1.5 + 1)
+				speed += ACCEL
 				score += 1
-				Globals.points_saved += 1
-				$"../Hud/Points_Score".text = str(Globals.points_saved)
-				
 				
 			dir = new_direction(collider)
 				
@@ -57,17 +51,10 @@ func _physics_process(delta):
 				Globals.highscore = score
 				Globals.save_highscore()
 				$"../Hud/HighScore Score".text = str(Globals.highscore)
-		
-		elif (collider == $"../Coin"):
-			score += 1
-			speed = speed
-			dir = dir
-			
-		
+
 		#if it hits a wall
 		else:
 			dir = dir.bounce(collision.get_normal())
-			
 			activescoring = 1
 			# print("activescoring:")
 			# print(activescoring)
