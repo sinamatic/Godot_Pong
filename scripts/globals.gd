@@ -67,6 +67,7 @@ func save_points():
 	else:
 		print("Fehler beim Speichern der Punkte!")
 
+
 # Lädt die Punkte aus einer Datei
 func load_points() -> int:
 	var file := FileAccess.open(SAVE_FILE_PATH_POINTS, FileAccess.READ)

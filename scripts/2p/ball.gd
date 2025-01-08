@@ -15,11 +15,13 @@ func _ready():
 	win_size = get_viewport_rect().size
 	$"../Hud/PlayerScore".text = str(score)
 	$"../Hud/HighScore Score".text = str(Globals.highscore)
+	$"../Hud/Points_Score".text = str(Globals.points_saved)
 
 func new_ball():
 	score = 0
 	$"../Hud/PlayerScore".text = str(score)
 	$"../Hud/HighScore Score".text = str(Globals.highscore)
+	$"../Hud/Points_Score".text = str(Globals.points_saved)
 	#randomize start position and direction
 	# position.x = win_size.x / 2
 	# position.y = randi_range(200, win_size.y - 200)
@@ -30,6 +32,7 @@ func new_ball():
 func _physics_process(delta):
 	var collision = move_and_collide(dir * speed * delta)
 	var collider
+	
 	if collision:
 		collider = collision.get_collider()
 		#if ball hits paddle
@@ -38,6 +41,9 @@ func _physics_process(delta):
 			if (activescoring):
 				speed += ACCEL / (score / 1.5 + 1)
 				score += 1
+				Globals.points_saved += 1
+				$"../Hud/Points_Score".text = str(Globals.points_saved)
+				
 				
 			dir = new_direction(collider)
 				
@@ -51,7 +57,7 @@ func _physics_process(delta):
 				Globals.highscore = score
 				Globals.save_highscore()
 				$"../Hud/HighScore Score".text = str(Globals.highscore)
-
+		
 		elif (collider == $"../Coin"):
 			score += 1
 			speed = speed
@@ -61,6 +67,7 @@ func _physics_process(delta):
 		#if it hits a wall
 		else:
 			dir = dir.bounce(collision.get_normal())
+			
 			activescoring = 1
 			# print("activescoring:")
 			# print(activescoring)

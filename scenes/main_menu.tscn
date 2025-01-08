@@ -44,8 +44,10 @@ anchors_preset = -1
 anchor_top = 0.118519
 anchor_right = 1.0
 anchor_bottom = 0.164815
-offset_top = -45.0972
-offset_bottom = -45.0968
+offset_left = -2.0
+offset_top = 1.28899
+offset_right = -2.0
+offset_bottom = 51.2893
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_v2aic")
 theme_override_font_sizes/font_size = 100
@@ -58,8 +60,10 @@ anchors_preset = -1
 anchor_top = 0.777778
 anchor_right = 1.0
 anchor_bottom = 0.824074
-offset_top = -128.415
-offset_bottom = -128.414
+offset_left = -2.0
+offset_top = -82.0288
+offset_right = -2.0
+offset_bottom = -82.0278
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_v2aic")
 theme_override_font_sizes/font_size = 50
@@ -72,8 +76,10 @@ anchors_preset = -1
 anchor_top = 0.866667
 anchor_right = 1.0
 anchor_bottom = 0.912963
-offset_top = -128.415
-offset_bottom = -128.414
+offset_left = -2.0
+offset_top = -82.0288
+offset_right = -2.0
+offset_bottom = -82.0278
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_v2aic")
 theme_override_font_sizes/font_size = 50
@@ -81,6 +87,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="Points_Headline" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.777778
@@ -96,6 +103,7 @@ text = "Points earned"
 horizontal_alignment = 1
 
 [node name="Points_Score" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.866667
@@ -111,6 +119,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="Time_Headline" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.777778
@@ -127,6 +136,7 @@ text = "Time played"
 horizontal_alignment = 1
 
 [node name="Time_time" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.866667
@@ -143,6 +153,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="Lost_Headline" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.777778
@@ -159,6 +170,7 @@ text = "Games lost"
 horizontal_alignment = 1
 
 [node name="Lost_Score" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.866667
@@ -181,9 +193,12 @@ anchor_left = 0.345833
 anchor_top = 0.258776
 anchor_right = 0.654167
 anchor_bottom = 0.577294
+offset_left = -2.0
+offset_top = 46.3862
+offset_right = -2.0
+offset_bottom = 46.3862
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="GameStart" type="Button" parent="VBoxContainer"]
 layout_mode = 2
